@@ -1,0 +1,23 @@
+/* Style architecture manifest. Add rules in the owning layer file, not here. */
+@import '../layout/GameShell.css';
+@import '../../shared/ui/typography.css';
+@import '../../shared/ui/buttons.css';
+@import '../../shared/ui/statusPill.css';
+@import '../../shared/ui/ScreenFrame.css';
+@import '../../shared/ui/GameHud.css';
+@import '../../shared/ui/MentorDialog.css';
+@import '../../shared/ui/PixelPanel.css';
+@import '../../pages/identity/IdentityPage.css';
+@import '../../features/identity/IdentityScreen.css';
+@import '../../features/map/WorldMap.css';
+@import '../../pages/chapter/ChapterPage.css';
+@import '../../features/chapter/LockedScreens.css';
+@import '../../pages/chapter/ChapterPrepPage.css';
+@import '../../pages/badge/BadgePage.css';
+@import '../../pages/closeout/CourseCloseoutPage.css';
+@import '../../pages/leaderboard/LeaderboardPage.css';
+@import '../../pages/field-guide/TrapFieldGuidePage.css';
+@import '../../features/leaderboard/ui/LeaderboardTable.css';
+@import '../../pages/mission/MissionPage.css';
+@import '../../features/mission/ui/MissionScene.css';
+@import '../../pages/system/SystemScreens.css';

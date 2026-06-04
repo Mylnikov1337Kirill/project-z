@@ -1,0 +1,6 @@
+.pixel-panel {
+  background: var(--white);
+  border: 4px solid var(--line);
+  box-shadow: 7px 7px 0 var(--shadow);
+  padding: 18px;
+}

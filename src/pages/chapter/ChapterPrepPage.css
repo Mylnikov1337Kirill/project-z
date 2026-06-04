@@ -1,0 +1,767 @@
+.prep-start-button {
+  --prep-start-delay: 15000ms;
+  align-items: flex-start;
+  background: var(--white);
+  flex-direction: column;
+  gap: 2px;
+  min-width: 228px;
+  overflow: hidden;
+  padding: 9px 16px;
+  position: relative;
+}
+
+.prep-start-button::before {
+  animation: prep-start-charge var(--prep-start-delay) linear forwards;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(226, 182, 109, 0.94) 0 18px,
+      rgba(255, 249, 232, 0.68) 18px 22px
+    );
+  content: '';
+  inset: 0;
+  position: absolute;
+  transform: scaleX(0);
+  transform-origin: left center;
+  width: 100%;
+  z-index: 0;
+}
+
+.prep-start-button::after {
+  border: 2px solid rgba(41, 63, 58, 0.28);
+  content: '';
+  inset: 5px;
+  position: absolute;
+  z-index: 0;
+}
+
+.prep-start-button-label,
+.prep-start-button-state {
+  position: relative;
+  z-index: 1;
+}
+
+.prep-start-button-label {
+  font-size: 16px;
+  line-height: 1.1;
+}
+
+.prep-start-button-state {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.1;
+}
+
+.prep-start-button[aria-disabled='true'] {
+  cursor: progress;
+  filter: grayscale(0.08);
+}
+
+.prep-start-button[aria-disabled='true']:hover {
+  transform: none;
+}
+
+.prep-start-button-ready::before {
+  animation: none;
+  transform: scaleX(1);
+}
+
+.prep-start-button-ready .prep-start-button-state {
+  color: var(--line);
+}
+
+@keyframes prep-start-charge {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.prep-screen {
+  background:
+    linear-gradient(180deg, rgba(255, 249, 232, 0.28), transparent 34%),
+    linear-gradient(120deg, rgba(115, 166, 185, 0.2), transparent 42%),
+    var(--screen);
+  min-height: 700px;
+}
+
+.prep-layout {
+  bottom: 20px;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+  left: 20px;
+  min-height: 0;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  z-index: 6;
+}
+
+.prep-card,
+.prep-resources {
+  min-height: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.prep-card {
+  align-content: start;
+  display: grid;
+  grid-template-rows: auto auto auto auto auto;
+  overflow: hidden;
+}
+
+.prep-card::before {
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 12px,
+      rgba(115, 166, 185, 0.16) 12px 16px
+    );
+  content: '';
+  height: 8px;
+  left: 18px;
+  position: absolute;
+  right: 18px;
+  top: 0;
+}
+
+.prep-hero {
+  align-items: stretch;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: minmax(0, 1fr) 136px;
+}
+
+.prep-hero-copy {
+  min-width: 0;
+}
+
+.prep-card h2 {
+  font-size: 18px;
+  line-height: 1.14;
+  margin-top: 8px;
+}
+
+.prep-card p:not(.status-pill):not(.prep-start-hint),
+.prep-resources > p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.34;
+  margin-top: 8px;
+}
+
+.prep-boot-core {
+  align-self: stretch;
+  background:
+    linear-gradient(180deg, rgba(255, 249, 232, 0.82), rgba(237, 248, 213, 0.92));
+  border: 4px solid var(--line);
+  box-shadow: inset 0 0 0 4px rgba(106, 170, 100, 0.18);
+  min-height: 132px;
+  overflow: hidden;
+  position: relative;
+}
+
+.prep-boot-core::before {
+  animation: prep-core-scan 2.4s linear infinite;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(41, 63, 58, 0.08) 0 3px,
+      transparent 3px 12px
+    );
+  content: '';
+  inset: 0;
+  position: absolute;
+}
+
+.prep-boot-core::after {
+  animation: prep-core-pulse 1.8s ease-in-out infinite;
+  border: 3px solid rgba(54, 112, 90, 0.42);
+  content: '';
+  inset: 22px;
+  position: absolute;
+}
+
+.prep-boot-beam {
+  animation: prep-beam-sweep 3s ease-in-out infinite;
+  background: rgba(226, 182, 109, 0.58);
+  border-left: 3px solid rgba(41, 63, 58, 0.34);
+  border-right: 3px solid rgba(41, 63, 58, 0.34);
+  bottom: -12px;
+  left: 50%;
+  position: absolute;
+  top: -12px;
+  transform: translateX(-50%) skewX(-10deg);
+  width: 34px;
+}
+
+.prep-robot-head {
+  background: var(--screen-soft);
+  border: 4px solid var(--line);
+  display: block;
+  height: 70px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -42%);
+  width: 84px;
+  z-index: 2;
+}
+
+.prep-robot-head::before {
+  background: var(--line);
+  content: '';
+  height: 20px;
+  left: 50%;
+  position: absolute;
+  top: -23px;
+  transform: translateX(-50%);
+  width: 5px;
+}
+
+.prep-robot-head::after {
+  background: var(--pink);
+  border: 3px solid var(--line);
+  content: '';
+  height: 12px;
+  left: 50%;
+  position: absolute;
+  top: -35px;
+  transform: translateX(-50%);
+  width: 12px;
+}
+
+.prep-robot-eye {
+  animation: prep-eye-glow 1.2s steps(2, end) infinite;
+  background: var(--green);
+  border: 3px solid var(--line);
+  height: 16px;
+  position: absolute;
+  top: 22px;
+  width: 18px;
+}
+
+.prep-robot-eye-left {
+  left: 17px;
+}
+
+.prep-robot-eye-right {
+  right: 17px;
+}
+
+.prep-robot-mouth {
+  background: var(--line);
+  bottom: 15px;
+  height: 5px;
+  left: 27px;
+  position: absolute;
+  right: 27px;
+}
+
+.prep-spark {
+  animation: prep-spark-blink 1.4s steps(2, end) infinite;
+  background: var(--gold);
+  border: 2px solid var(--line);
+  height: 11px;
+  position: absolute;
+  width: 11px;
+  z-index: 3;
+}
+
+.prep-spark-one {
+  left: 18px;
+  top: 26px;
+}
+
+.prep-spark-two {
+  animation-delay: 320ms;
+  right: 22px;
+  top: 54px;
+}
+
+.prep-spark-three {
+  animation-delay: 640ms;
+  bottom: 30px;
+  left: 36px;
+}
+
+.prep-boot-console {
+  --prep-start-delay: 15000ms;
+  background: var(--ink);
+  border: 4px solid var(--line);
+  color: var(--screen-soft);
+  margin-top: 10px;
+  overflow: hidden;
+  padding: 8px;
+  position: relative;
+}
+
+.prep-boot-console::before {
+  animation: prep-console-scan 2.8s linear infinite;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 10px,
+      rgba(237, 248, 213, 0.08) 10px 12px
+    );
+  content: '';
+  inset: 0;
+  position: absolute;
+}
+
+.prep-boot-console-header,
+.prep-boot-meter,
+.prep-boot-steps {
+  position: relative;
+  z-index: 1;
+}
+
+.prep-boot-console-header {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.prep-boot-console-header span,
+.prep-boot-console-header strong,
+.prep-boot-step span,
+.prep-boot-step em {
+  font-family: var(--mono);
+}
+
+.prep-boot-console-header span {
+  color: rgba(237, 248, 213, 0.76);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.prep-boot-console-header strong {
+  color: var(--gold);
+  font-size: 13px;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.prep-boot-meter {
+  background: rgba(237, 248, 213, 0.18);
+  border: 3px solid rgba(237, 248, 213, 0.82);
+  height: 12px;
+  margin-top: 8px;
+}
+
+.prep-boot-meter span {
+  animation: prep-meter-charge var(--prep-start-delay) linear forwards;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      var(--gold) 0 16px,
+      var(--screen-soft) 16px 20px
+    );
+  display: block;
+  height: 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.prep-boot-console-ready .prep-boot-meter span {
+  animation: none;
+  transform: scaleX(1);
+}
+
+.prep-boot-steps {
+  display: grid;
+  gap: 6px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+}
+
+.prep-boot-step {
+  animation: prep-step-awaken 240ms steps(1, end) forwards;
+  animation-delay: var(--boot-step-delay);
+  background: rgba(237, 248, 213, 0.09);
+  border: 2px solid rgba(237, 248, 213, 0.28);
+  color: rgba(237, 248, 213, 0.58);
+  display: grid;
+  gap: 2px;
+  min-height: 42px;
+  padding: 5px 8px 5px 23px;
+  position: relative;
+}
+
+.prep-boot-step::before {
+  background: rgba(237, 248, 213, 0.32);
+  border: 2px solid rgba(237, 248, 213, 0.34);
+  content: '';
+  height: 9px;
+  left: 7px;
+  position: absolute;
+  top: 10px;
+  width: 9px;
+}
+
+.prep-boot-step span {
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.prep-boot-step em {
+  font-size: 10px;
+  font-style: normal;
+  line-height: 1.2;
+}
+
+.prep-boot-console-ready .prep-boot-step {
+  animation: none;
+  background: rgba(226, 182, 109, 0.2);
+  border-color: rgba(226, 182, 109, 0.76);
+  color: var(--screen-soft);
+}
+
+.prep-boot-console-ready .prep-boot-step::before {
+  background: var(--gold);
+  border-color: var(--screen-soft);
+}
+
+@keyframes prep-meter-charge {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes prep-step-awaken {
+  to {
+    background: rgba(226, 182, 109, 0.2);
+    border-color: rgba(226, 182, 109, 0.76);
+    color: var(--screen-soft);
+  }
+}
+
+@keyframes prep-core-scan {
+  to {
+    transform: translateY(12px);
+  }
+}
+
+@keyframes prep-core-pulse {
+  50% {
+    border-color: rgba(226, 182, 109, 0.78);
+    transform: scale(0.94);
+  }
+}
+
+@keyframes prep-beam-sweep {
+  50% {
+    transform: translateX(-50%) skewX(10deg) scaleX(1.35);
+  }
+}
+
+@keyframes prep-eye-glow {
+  50% {
+    background: var(--gold);
+  }
+}
+
+@keyframes prep-spark-blink {
+  50% {
+    opacity: 0.18;
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes prep-console-scan {
+  to {
+    transform: translateY(12px);
+  }
+}
+
+.prep-instruction-carousel {
+  background: rgba(237, 248, 213, 0.58);
+  border: 3px solid var(--line);
+  box-shadow: inset 0 0 0 4px rgba(106, 170, 100, 0.13);
+  margin: 10px 0 8px;
+  min-width: 0;
+  padding: 8px;
+}
+
+.prep-instruction-header {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.prep-instruction-header span,
+.prep-instruction-header strong,
+.prep-instruction-card span,
+.prep-carousel-button {
+  font-family: var(--mono);
+}
+
+.prep-instruction-header span {
+  color: var(--green-deep);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.prep-instruction-header strong {
+  background: var(--ink);
+  color: var(--gold);
+  font-size: 12px;
+  padding: 3px 7px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.prep-instruction-shell {
+  align-items: stretch;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 38px minmax(0, 1fr) 38px;
+  min-width: 0;
+}
+
+.prep-carousel-button {
+  align-items: center;
+  background: var(--white);
+  border: 3px solid var(--line);
+  box-shadow: 3px 3px 0 rgba(41, 63, 58, 0.18);
+  color: var(--ink);
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 24px;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 1;
+  min-height: 88px;
+  padding: 0;
+  transition:
+    box-shadow 120ms ease,
+    transform 120ms ease;
+}
+
+.prep-carousel-button:not(:disabled):hover {
+  transform: translateY(-1px);
+}
+
+.prep-carousel-button:focus-visible,
+.prep-instruction-viewport:focus-visible {
+  outline: 4px solid var(--green-deep);
+  outline-offset: 4px;
+}
+
+.prep-carousel-button:disabled {
+  cursor: default;
+  opacity: 0.42;
+}
+
+.prep-instruction-viewport {
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.prep-instruction-viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.prep-instruction-track {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0 56px 0 0;
+  width: 100%;
+}
+
+.prep-instruction-card {
+  background:
+    linear-gradient(180deg, rgba(255, 249, 232, 0.72), transparent 64%),
+    var(--screen-soft);
+  border: 3px solid var(--line);
+  color: var(--ink);
+  display: grid;
+  flex: 0 0 100%;
+  gap: 6px;
+  min-width: 0;
+  min-height: 88px;
+  overflow-wrap: anywhere;
+  padding: 9px 11px;
+  scroll-snap-align: start;
+}
+
+.prep-instruction-card-active {
+  box-shadow: inset 0 0 0 4px rgba(226, 182, 109, 0.42);
+}
+
+.prep-instruction-card span {
+  color: var(--green-deep);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.prep-instruction-card p {
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.prep-instruction-progress {
+  display: grid;
+  gap: 6px;
+  grid-template-columns: repeat(auto-fit, minmax(18px, 1fr));
+  margin-top: 7px;
+}
+
+.prep-instruction-progress span {
+  background: rgba(41, 63, 58, 0.16);
+  border: 2px solid rgba(41, 63, 58, 0.32);
+  height: 8px;
+}
+
+.prep-instruction-progress .prep-instruction-dot-active {
+  background: var(--gold);
+  border-color: var(--line);
+}
+
+.prep-actions {
+  align-items: flex-start;
+  align-self: start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.prep-actions .pixel-button {
+  align-self: flex-start;
+}
+
+.prep-start-hint {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.35;
+  margin-top: 8px;
+}
+
+.prep-resources {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.resource-grid {
+  display: grid;
+  gap: 10px;
+  min-height: 0;
+  overflow: auto;
+  padding-right: 4px;
+}
+
+.resource-card {
+  background: var(--screen-soft);
+  border: 3px solid var(--line);
+  color: var(--ink);
+  display: grid;
+  gap: 6px;
+  padding: 12px;
+  text-decoration: none;
+  transition:
+    box-shadow 120ms ease,
+    transform 120ms ease;
+}
+
+.resource-card:hover {
+  box-shadow: 4px 4px 0 rgba(41, 63, 58, 0.16);
+  transform: translateY(-1px);
+}
+
+.resource-card:focus-visible {
+  outline: 4px solid var(--green-deep);
+  outline-offset: 4px;
+}
+
+.resource-card span {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.resource-card strong {
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 17px;
+  line-height: 1.15;
+}
+
+.resource-card p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+@media (max-width: 1080px) {
+  .prep-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .prep-boot-core {
+    display: none;
+  }
+}
+
+@media (max-width: 920px) {
+  .prep-screen {
+    min-height: 1180px;
+  }
+
+  .prep-layout {
+    grid-template-columns: 1fr;
+    left: 18px;
+    right: 18px;
+  }
+}
+
+@media (max-width: 560px) {
+  .prep-screen {
+    min-height: 1280px;
+  }
+
+  .prep-layout {
+    bottom: 18px;
+    gap: 14px;
+  }
+
+  .prep-boot-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .prep-instruction-track {
+    padding-right: 36px;
+  }
+
+  .prep-instruction-card {
+    flex-basis: 100%;
+  }
+
+  .prep-actions .pixel-button {
+    width: 100%;
+  }
+}

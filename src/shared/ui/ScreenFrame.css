@@ -1,0 +1,50 @@
+.screen-frame {
+  border: 4px solid var(--line);
+  box-shadow: 7px 7px 0 var(--shadow);
+}
+
+.screen-frame {
+  aspect-ratio: 16 / 8.2;
+  background:
+    linear-gradient(180deg, rgba(255, 249, 232, 0.24), transparent 38%),
+    var(--screen);
+  min-height: 620px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.screen-frame::before {
+  background:
+    linear-gradient(90deg, rgba(35, 48, 50, 0.08) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(35, 48, 50, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+  content: '';
+  inset: 0;
+  opacity: 0.56;
+  position: absolute;
+}
+
+.screen-frame::after {
+  background: var(--line);
+  bottom: 0;
+  content: '';
+  height: 10px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  z-index: 2;
+}
+
+@media (max-width: 920px) {
+  .screen-frame {
+      aspect-ratio: auto;
+      min-height: 680px;
+    }
+}
+
+@media (max-width: 560px) {
+  .screen-frame {
+      min-height: 620px;
+    }
+}

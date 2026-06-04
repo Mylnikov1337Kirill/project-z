@@ -1,0 +1,354 @@
+.closeout-screen {
+  min-height: 740px;
+}
+
+.closeout-layout {
+  bottom: 28px;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: minmax(340px, 0.82fr) minmax(620px, 1.18fr);
+  left: 28px;
+  position: absolute;
+  right: 28px;
+  top: 28px;
+  z-index: 6;
+}
+
+.closeout-library-card,
+.closeout-preview-card {
+  border-width: 4px;
+  box-shadow: 7px 7px 0 rgba(41, 63, 58, 0.18);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.closeout-library-card {
+  background:
+    linear-gradient(135deg, rgba(237, 248, 213, 0.98) 0 28%, transparent 28% 100%),
+    linear-gradient(180deg, rgba(255, 249, 232, 0.96), var(--white));
+  padding: 16px;
+}
+
+.closeout-preview-card {
+  background:
+    linear-gradient(135deg, rgba(216, 237, 243, 0.92) 0 22%, transparent 22% 100%),
+    rgba(255, 249, 232, 0.94);
+  padding: 16px;
+}
+
+.closeout-library-card h2,
+.closeout-preview-card h2,
+.closeout-locked-card h2 {
+  font-size: 27px;
+  line-height: 1.08;
+}
+
+.closeout-library-card .status-pill {
+  margin-top: 12px;
+  width: fit-content;
+}
+
+.closeout-library-intro,
+.closeout-selected-description,
+.closeout-empty-state p,
+.closeout-locked-card > p:not(.status-pill),
+.closeout-data-note {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.42;
+  margin-top: 10px;
+}
+
+.closeout-metrics {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 14px;
+}
+
+.closeout-metrics span {
+  background: var(--screen-soft);
+  border: 3px solid var(--line);
+  color: var(--muted);
+  display: grid;
+  font-size: 12px;
+  gap: 3px;
+  line-height: 1.2;
+  padding: 8px;
+}
+
+.closeout-metrics strong {
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 22px;
+  line-height: 1;
+}
+
+.closeout-artifact-list {
+  display: grid;
+  flex: 1 1 auto;
+  gap: 8px;
+  list-style: none;
+  margin: 14px 0 0;
+  min-height: 0;
+  overflow: auto;
+  padding: 0 6px 6px 0;
+}
+
+.closeout-artifact-option {
+  align-items: center;
+  background: rgba(255, 249, 232, 0.92);
+  border: 3px solid var(--line);
+  box-shadow: 4px 4px 0 rgba(41, 63, 58, 0.14);
+  color: var(--ink);
+  cursor: pointer;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 58px minmax(0, 1fr);
+  min-height: 82px;
+  padding: 9px;
+  text-align: left;
+  transition:
+    box-shadow 120ms ease,
+    transform 120ms ease;
+  width: 100%;
+}
+
+.closeout-artifact-option:not(:disabled):hover {
+  transform: translateY(-2px);
+}
+
+.closeout-artifact-option:focus-visible {
+  outline: 4px solid var(--green-deep);
+  outline-offset: 3px;
+}
+
+.closeout-artifact-option:disabled {
+  cursor: progress;
+  opacity: 0.72;
+}
+
+.closeout-artifact-option[aria-pressed='true'] {
+  background: var(--screen-soft);
+  box-shadow:
+    inset 0 0 0 4px rgba(106, 170, 100, 0.32),
+    4px 4px 0 rgba(41, 63, 58, 0.14);
+}
+
+.closeout-artifact-number {
+  align-items: center;
+  background: var(--line);
+  color: var(--white);
+  display: flex;
+  font-family: var(--mono);
+  font-size: 17px;
+  font-weight: 700;
+  height: 52px;
+  justify-content: center;
+}
+
+.closeout-artifact-copy {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.closeout-artifact-copy strong,
+.closeout-artifact-copy small,
+.closeout-artifact-copy span,
+.closeout-selected-meta {
+  overflow-wrap: anywhere;
+}
+
+.closeout-artifact-copy strong {
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 14px;
+  line-height: 1.15;
+}
+
+.closeout-artifact-copy span {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.22;
+}
+
+.closeout-artifact-copy small {
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.18;
+  text-transform: uppercase;
+}
+
+.closeout-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.closeout-actions .pixel-button {
+  flex: 1 1 155px;
+  font-size: 13px;
+  min-width: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.closeout-data-note {
+  background: var(--screen-soft);
+  border: 3px solid var(--line);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px;
+}
+
+.closeout-selected-meta {
+  align-items: center;
+  border-bottom: 4px solid var(--line);
+  color: var(--muted);
+  display: flex;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  gap: 12px;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.closeout-selected-meta strong {
+  background: var(--line);
+  color: var(--white);
+  flex: 0 0 auto;
+  padding: 5px 7px;
+}
+
+.closeout-selected-skill {
+  background: rgba(237, 248, 213, 0.78);
+  border-left: 6px solid var(--green-deep);
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.35;
+  margin-top: 12px;
+  padding: 9px 0 9px 12px;
+}
+
+.closeout-preview-card .artifact-toolbar {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.closeout-preview-card .artifact-toolbar span {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  text-transform: uppercase;
+}
+
+.closeout-preview-card .artifact-toolbar .pixel-button {
+  flex: 0 0 auto;
+  font-size: 12px;
+  padding: 8px 10px;
+}
+
+.closeout-artifact-preview {
+  background: var(--screen-soft);
+  border: 3px solid var(--line);
+  color: var(--ink);
+  flex: 1 1 0;
+  font: 700 12px/1.42 var(--mono);
+  margin: 8px 0 0;
+  min-height: 280px;
+  overflow: auto;
+  padding: 12px;
+  white-space: pre-wrap;
+}
+
+.closeout-empty-state {
+  align-content: center;
+  display: grid;
+  flex: 1 1 auto;
+  gap: 16px;
+  justify-items: start;
+}
+
+.closeout-screen-locked {
+  display: grid;
+  place-items: center;
+}
+
+.closeout-locked-card {
+  background: rgba(255, 249, 232, 0.94);
+  max-width: 560px;
+  position: relative;
+  z-index: 6;
+}
+
+.closeout-locked-card .pixel-button {
+  margin-top: 18px;
+}
+
+@media (max-width: 920px) {
+  .closeout-screen {
+    min-height: 1220px;
+  }
+
+  .closeout-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(460px, 0.76fr) minmax(520px, 1fr);
+    left: 18px;
+    right: 18px;
+    top: 18px;
+  }
+}
+
+@media (max-width: 560px) {
+  .closeout-screen {
+    min-height: 1380px;
+  }
+
+  .closeout-layout {
+    bottom: 18px;
+    gap: 14px;
+  }
+
+  .closeout-metrics,
+  .closeout-artifact-option,
+  .closeout-preview-card .artifact-toolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .closeout-artifact-option {
+    align-items: stretch;
+  }
+
+  .closeout-artifact-number {
+    height: 42px;
+    width: 72px;
+  }
+
+  .closeout-actions .pixel-button,
+  .closeout-preview-card .artifact-toolbar .pixel-button {
+    width: 100%;
+  }
+
+  .closeout-preview-card .artifact-toolbar {
+    align-items: stretch;
+    display: grid;
+  }
+}

@@ -1,0 +1,182 @@
+.trap-guide-screen {
+  min-height: 620px;
+}
+
+.trap-guide-layout {
+  bottom: 28px;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: minmax(320px, 0.55fr) minmax(620px, 1.45fr);
+  left: 28px;
+  position: absolute;
+  right: 28px;
+  top: 28px;
+  z-index: 6;
+}
+
+.trap-guide-summary {
+  display: flex;
+  flex-direction: column;
+}
+
+.trap-guide-summary h2 {
+  font-size: 26px;
+  line-height: 1.15;
+  margin-top: 12px;
+}
+
+.trap-guide-summary > p:not(.status-pill),
+.trap-guide-message {
+  background: var(--screen-soft);
+  border: 3px solid var(--line);
+  color: var(--muted);
+  line-height: 1.45;
+  margin-top: 12px;
+  padding: 12px;
+}
+
+.trap-guide-metrics {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.trap-guide-metrics span {
+  background: var(--screen-soft);
+  border: 3px solid var(--line);
+  color: var(--muted);
+  display: grid;
+  font-size: 14px;
+  gap: 4px;
+  line-height: 1.3;
+  padding: 10px;
+}
+
+.trap-guide-metrics strong {
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 28px;
+  line-height: 1;
+}
+
+.trap-guide-summary .pixel-button {
+  margin-top: auto;
+}
+
+.trap-guide-list-card {
+  min-height: 0;
+  min-width: 0;
+  overflow: auto;
+}
+
+.trap-guide-list-card h2 {
+  font-size: 24px;
+  line-height: 1.15;
+}
+
+.trap-guide-message {
+  margin-top: 16px;
+}
+
+.trap-guide-message-loading {
+  animation: loading-scan 1.1s steps(6, end) infinite;
+  background:
+    linear-gradient(90deg, transparent, rgba(255, 249, 232, 0.75), transparent),
+    var(--screen-soft);
+  background-size: 180% 100%;
+}
+
+.trap-guide-message-error {
+  background: #fff0d9;
+  box-shadow: inset 7px 0 0 var(--pink);
+}
+
+.trap-guide-message-empty {
+  box-shadow: inset 7px 0 0 var(--gold);
+}
+
+.trap-guide-list {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+}
+
+.trap-guide-item {
+  align-items: start;
+  background:
+    linear-gradient(135deg, rgba(229, 138, 144, 0.2) 0 22%, transparent 22% 100%),
+    rgba(255, 249, 232, 0.82);
+  border: 3px solid var(--line);
+  box-shadow: inset 0 -6px 0 rgba(41, 63, 58, 0.08);
+  display: grid;
+  gap: 10px;
+  grid-template-columns: auto minmax(0, 1fr);
+  min-height: 154px;
+  padding: 12px;
+  position: relative;
+}
+
+.trap-guide-index {
+  background: var(--line);
+  border: 3px solid var(--line);
+  color: var(--white);
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 7px 8px;
+}
+
+.trap-guide-item strong {
+  color: var(--ink);
+  display: block;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.trap-guide-item p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.4;
+  margin-top: 8px;
+}
+
+.trap-guide-item-state {
+  background: var(--gold);
+  border: 2px solid var(--line);
+  bottom: 10px;
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 5px 6px;
+  position: absolute;
+  right: 10px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 920px) {
+  .trap-guide-screen {
+    min-height: 1040px;
+  }
+
+  .trap-guide-layout {
+    grid-template-columns: 1fr;
+    left: 18px;
+    right: 18px;
+  }
+
+  .trap-guide-summary .pixel-button {
+    margin-top: 18px;
+  }
+}
+
+@media (max-width: 700px) {
+  .trap-guide-list {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,927 @@
+.badge-screen {
+  min-height: 760px;
+}
+
+.artifact-card > p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.25;
+  margin-top: 6px;
+}
+
+.artifact-selector {
+  display: grid;
+  gap: 5px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  margin-top: 6px;
+}
+
+.artifact-selector-option {
+  background: var(--white);
+  border: 2px solid var(--line);
+  box-shadow: 3px 3px 0 rgba(41, 63, 58, 0.16);
+  color: var(--ink);
+  cursor: pointer;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 800;
+  min-height: 30px;
+  padding: 5px 8px;
+  text-align: left;
+}
+
+.artifact-selector-option[aria-pressed='true'] {
+  background: #fff0c6;
+  box-shadow: inset 0 0 0 2px rgba(41, 63, 58, 0.22);
+}
+
+.badge-actions,
+.artifact-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.artifact-toolbar span,
+.badge-stats span {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.badge-layout {
+  bottom: 28px;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: minmax(390px, 0.92fr) minmax(540px, 1.08fr);
+  left: 28px;
+  position: absolute;
+  right: 28px;
+  top: 28px;
+  z-index: 6;
+}
+
+.badge-card,
+.artifact-card,
+.badge-side-stack {
+  height: 100%;
+  min-height: 0;
+}
+
+.badge-side-stack {
+  display: grid;
+  gap: 6px;
+  grid-template-rows: auto auto minmax(0, 1fr);
+  min-width: 0;
+}
+
+.badge-card {
+  --reward-main: var(--gold);
+  --reward-deep: #9f6b30;
+  --reward-soft: #fff0c6;
+
+  background:
+    linear-gradient(135deg, var(--reward-soft) 0 28%, transparent 28% 100%),
+    linear-gradient(180deg, rgba(255, 249, 232, 0.96), var(--white));
+  border-width: 5px;
+  box-shadow: 9px 9px 0 rgba(41, 63, 58, 0.22);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 22px;
+  position: relative;
+}
+
+.badge-card::before {
+  background:
+    linear-gradient(90deg, rgba(41, 63, 58, 0.12) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(41, 63, 58, 0.12) 1px, transparent 1px);
+  background-size: 18px 18px;
+  content: '';
+  inset: 12px;
+  opacity: 0.38;
+  pointer-events: none;
+  position: absolute;
+}
+
+.badge-card::after {
+  border: 2px dashed rgba(41, 63, 58, 0.34);
+  content: '';
+  inset: 13px;
+  pointer-events: none;
+  position: absolute;
+}
+
+.badge-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.badge-ceremony-seal {
+  background:
+    linear-gradient(135deg, var(--reward-soft) 0 26%, transparent 26% 100%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(41, 63, 58, 0.06) 0 6px,
+      transparent 6px 14px
+    ),
+    linear-gradient(180deg, rgba(255, 249, 232, 0.98), var(--white));
+}
+
+.badge-ceremony-seal::after {
+  border: 3px solid rgba(41, 63, 58, 0.52);
+  box-shadow:
+    inset 0 0 0 7px rgba(255, 249, 232, 0.58),
+    inset 0 0 0 13px rgba(41, 63, 58, 0.1);
+}
+
+.badge-ceremony-seal .badge-emblem {
+  box-shadow:
+    inset 0 -18px 0 rgba(255, 249, 232, 0.34),
+    inset 0 0 0 8px rgba(255, 249, 232, 0.48),
+    8px 8px 0 rgba(41, 63, 58, 0.22);
+  height: 132px;
+  width: 132px;
+}
+
+.badge-ceremony-seal .badge-emblem::before {
+  background: var(--reward-soft);
+  right: -9px;
+  top: 18px;
+}
+
+.badge-ceremony-seal .badge-emblem::after {
+  background: var(--reward-soft);
+  bottom: 18px;
+  left: -9px;
+}
+
+.badge-ceremony-signal {
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(41, 63, 58, 0.1) 0 2px,
+      transparent 2px 8px
+    ),
+    linear-gradient(180deg, rgba(232, 249, 250, 0.96), var(--white));
+}
+
+.badge-ceremony-signal::before {
+  background:
+    linear-gradient(90deg, rgba(41, 63, 58, 0.1) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(41, 63, 58, 0.1) 1px, transparent 1px);
+  background-size: 14px 14px;
+  opacity: 0.28;
+}
+
+.badge-ceremony-signal::after {
+  background:
+    linear-gradient(var(--reward-main), var(--reward-main)) left top / 48px 4px
+      no-repeat,
+    linear-gradient(var(--reward-main), var(--reward-main)) left top / 4px 48px
+      no-repeat,
+    linear-gradient(var(--reward-main), var(--reward-main)) right top / 48px
+      4px no-repeat,
+    linear-gradient(var(--reward-main), var(--reward-main)) right top / 4px
+      48px no-repeat,
+    linear-gradient(var(--reward-main), var(--reward-main)) left bottom / 48px
+      4px no-repeat,
+    linear-gradient(var(--reward-main), var(--reward-main)) left bottom / 4px
+      48px no-repeat,
+    linear-gradient(var(--reward-main), var(--reward-main)) right bottom / 48px
+      4px no-repeat,
+    linear-gradient(var(--reward-main), var(--reward-main)) right bottom / 4px
+      48px no-repeat;
+  border: 0;
+  inset: 13px;
+  opacity: 0.9;
+}
+
+.badge-ceremony-signal .badge-card-motif-row {
+  border-bottom-color: var(--reward-main);
+}
+
+.badge-ceremony-signal .badge-emblem {
+  background:
+    linear-gradient(180deg, rgba(255, 249, 232, 0.16), transparent 42%),
+    var(--line);
+  box-shadow:
+    inset 0 0 0 10px var(--reward-main),
+    inset 0 -18px 0 rgba(255, 249, 232, 0.1),
+    7px 7px 0 rgba(41, 63, 58, 0.24);
+  color: var(--white);
+  text-shadow: 2px 2px 0 var(--reward-deep);
+}
+
+.badge-ceremony-signal .badge-emblem::before,
+.badge-ceremony-signal .badge-emblem::after {
+  background: var(--reward-main);
+  border-color: var(--white);
+}
+
+.badge-ceremony-signal .badge-motto {
+  border-left: 0;
+  box-shadow: inset 8px 0 0 var(--reward-main);
+}
+
+.badge-ceremony-route-seal {
+  background:
+    linear-gradient(135deg, rgba(223, 240, 201, 0.95) 0 24%, transparent 24%),
+    linear-gradient(315deg, rgba(98, 184, 167, 0.18) 0 18%, transparent 18%),
+    linear-gradient(180deg, rgba(255, 249, 232, 0.98), var(--white));
+}
+
+.badge-ceremony-route-seal::after {
+  border: 3px dashed rgba(41, 63, 58, 0.44);
+  box-shadow: inset 0 0 0 7px rgba(106, 170, 100, 0.12);
+}
+
+.badge-ceremony-route-seal .badge-emblem {
+  box-shadow:
+    inset 0 -16px 0 rgba(255, 249, 232, 0.34),
+    inset 0 0 0 7px rgba(255, 249, 232, 0.46),
+    7px 7px 0 rgba(41, 63, 58, 0.22);
+  height: 126px;
+  width: 126px;
+}
+
+.badge-route-mark {
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.badge-route-mark::before {
+  background: var(--line);
+  box-shadow: 0 0 0 2px rgba(255, 249, 232, 0.72);
+  content: '';
+  height: 5px;
+  left: 21px;
+  position: absolute;
+  top: 84px;
+  transform: rotate(-18deg);
+  transform-origin: left center;
+  width: 79px;
+}
+
+.badge-route-mark::after {
+  background: var(--white);
+  border: 4px solid var(--line);
+  box-shadow:
+    43px -16px 0 -1px var(--white),
+    43px -16px 0 3px var(--line),
+    76px -4px 0 -1px var(--white),
+    76px -4px 0 3px var(--line);
+  content: '';
+  height: 13px;
+  left: 18px;
+  position: absolute;
+  top: 77px;
+  width: 13px;
+}
+
+.badge-card-earned.badge-ceremony-seal .badge-emblem {
+  animation: badge-seal-pop 520ms steps(3, end) both;
+}
+
+.badge-card-earned.badge-ceremony-signal::before {
+  animation: badge-signal-scan 700ms steps(6, end) both;
+}
+
+.badge-card-earned.badge-ceremony-route-seal .badge-route-mark::after {
+  animation: badge-route-pulse 640ms steps(3, end) both;
+}
+
+.badge-card-blue {
+  --reward-main: var(--blue);
+  --reward-deep: #3b7180;
+  --reward-soft: #d8edf3;
+}
+
+.badge-card-gold {
+  --reward-main: var(--gold);
+  --reward-deep: #9f6b30;
+  --reward-soft: #fff0c6;
+}
+
+.badge-card-green {
+  --reward-main: var(--green);
+  --reward-deep: var(--green-deep);
+  --reward-soft: #dff0c9;
+}
+
+.badge-card-orange {
+  --reward-main: #ec9b55;
+  --reward-deep: #9a5729;
+  --reward-soft: #ffe1bd;
+}
+
+.badge-card-pink {
+  --reward-main: var(--pink);
+  --reward-deep: #9d4856;
+  --reward-soft: #f8d6d8;
+}
+
+.badge-card-teal {
+  --reward-main: #62b8a7;
+  --reward-deep: #2f736b;
+  --reward-soft: #d6f1e6;
+}
+
+.badge-card-violet {
+  --reward-main: #9c8ed6;
+  --reward-deep: #5b518f;
+  --reward-soft: #e6e0ff;
+}
+
+.badge-card-topline,
+.badge-card-motif-row {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.badge-card-topline {
+  gap: 12px;
+}
+
+.badge-card-number {
+  background: var(--line);
+  border: 3px solid var(--line);
+  box-shadow: 4px 4px 0 rgba(41, 63, 58, 0.18);
+  color: var(--white);
+  font-family: var(--mono);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 8px 10px;
+}
+
+.badge-card-motif-row {
+  border-bottom: 4px solid var(--line);
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  gap: 12px;
+  margin-top: 14px;
+  padding-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.badge-card-motif-row span:last-child {
+  color: var(--ink);
+  text-align: right;
+}
+
+.badge-emblem {
+  align-items: center;
+  background:
+    linear-gradient(135deg, rgba(255, 249, 232, 0.58) 0 18%, transparent 18% 100%),
+    var(--reward-main);
+  border: 6px solid var(--line);
+  box-shadow:
+    inset 0 -16px 0 rgba(255, 249, 232, 0.34),
+    7px 7px 0 rgba(41, 63, 58, 0.2);
+  color: var(--ink);
+  display: flex;
+  flex: 0 0 auto;
+  font: 700 38px/1 var(--mono);
+  height: 118px;
+  justify-content: center;
+  position: relative;
+  text-shadow: 2px 2px 0 rgba(255, 249, 232, 0.5);
+  width: 118px;
+}
+
+.badge-emblem::before,
+.badge-emblem::after {
+  background: var(--white);
+  border: 3px solid var(--line);
+  content: '';
+  height: 16px;
+  position: absolute;
+  width: 16px;
+}
+
+.badge-emblem::before {
+  right: 12px;
+  top: 12px;
+}
+
+.badge-emblem::after {
+  bottom: 12px;
+  left: 12px;
+}
+
+.badge-emblem span {
+  position: relative;
+  z-index: 1;
+}
+
+.badge-emblem-block {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.badge-emblem-copy {
+  min-width: 0;
+}
+
+.badge-card-label {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.badge-card h2 {
+  font-size: 28px;
+  line-height: 1.08;
+  margin-top: 8px;
+}
+
+.badge-motto {
+  background: rgba(255, 249, 232, 0.72);
+  border-left: 6px solid var(--reward-deep);
+  color: var(--ink);
+  font-weight: 700;
+  line-height: 1.35;
+  margin-top: 16px;
+  padding: 10px 0 10px 12px;
+}
+
+.badge-skill {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.45;
+  margin-top: 12px;
+}
+
+.badge-mastery {
+  border-top: 4px solid var(--reward-main);
+  margin-top: 15px;
+  padding-top: 9px;
+}
+
+.badge-mastery-kicker {
+  color: var(--muted);
+  display: block;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.badge-mastery h3 {
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.12;
+  margin-top: 5px;
+}
+
+.badge-mastery ul {
+  display: grid;
+  gap: 6px;
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+}
+
+.badge-mastery li {
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.28;
+  padding-left: 17px;
+  position: relative;
+}
+
+.badge-mastery li::before {
+  background: var(--reward-main);
+  border: 2px solid var(--line);
+  box-shadow: 2px 2px 0 rgba(41, 63, 58, 0.14);
+  content: '';
+  height: 8px;
+  left: 0;
+  position: absolute;
+  top: 4px;
+  width: 8px;
+}
+
+.badge-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.badge-stats span {
+  background: rgba(237, 248, 213, 0.9);
+  border: 3px solid var(--line);
+  color: var(--ink);
+  flex: 1 1 140px;
+  padding: 7px 9px;
+}
+
+.badge-actions {
+  margin-top: auto;
+  padding-top: 16px;
+}
+
+.badge-actions .pixel-button {
+  flex: 1 1 145px;
+  font-size: 14px;
+  min-width: 0;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.chapter-recap-card {
+  background:
+    linear-gradient(180deg, rgba(237, 248, 213, 0.9), rgba(255, 249, 232, 0.92));
+  border-width: 3px;
+  box-shadow: 5px 5px 0 rgba(41, 63, 58, 0.18);
+  max-height: 210px;
+  overflow: auto;
+  padding: 8px;
+}
+
+.chapter-recap-card h2 {
+  font-size: 16px;
+  line-height: 1.15;
+}
+
+.chapter-recap-grid {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: minmax(0, 1.1fr) minmax(180px, 0.9fr);
+  margin-top: 7px;
+}
+
+.chapter-recap-rules span,
+.chapter-recap-trap span,
+.chapter-recap-next span {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.chapter-recap-rules ul {
+  display: grid;
+  gap: 3px;
+  list-style: none;
+  margin: 5px 0 0;
+  padding: 0;
+}
+
+.chapter-recap-rules li {
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.26;
+  padding-left: 15px;
+  position: relative;
+}
+
+.chapter-recap-rules li::before {
+  background: var(--line);
+  content: '';
+  height: 7px;
+  left: 0;
+  position: absolute;
+  top: 6px;
+  width: 7px;
+}
+
+.chapter-recap-trap {
+  background: rgba(255, 249, 232, 0.8);
+  border: 3px solid var(--line);
+  box-shadow: 4px 4px 0 rgba(41, 63, 58, 0.14);
+  padding: 6px;
+}
+
+.chapter-recap-trap strong {
+  color: var(--ink);
+  display: block;
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.25;
+  margin-top: 4px;
+}
+
+.chapter-recap-trap p,
+.chapter-recap-next p {
+  color: var(--ink);
+  font-size: 11px;
+  line-height: 1.28;
+  margin: 4px 0 0;
+}
+
+.chapter-recap-next {
+  border-top: 3px solid var(--line);
+  margin-top: 7px;
+  padding-top: 6px;
+}
+
+.reflection-card {
+  background: rgba(216, 237, 243, 0.9);
+  border: 3px solid var(--line);
+  box-shadow: 5px 5px 0 rgba(41, 63, 58, 0.18);
+  padding: 8px 10px;
+}
+
+.reflection-card-topline,
+.reflection-form-footer {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.reflection-card-topline span,
+.reflection-card-topline strong,
+.reflection-note-field span,
+.reflection-form-footer {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.reflection-card h2 {
+  font-size: 15px;
+  line-height: 1.15;
+  margin-top: 4px;
+}
+
+.reflection-muted,
+.reflection-summary p {
+  color: var(--ink);
+  font-size: 11px;
+  line-height: 1.3;
+  margin: 5px 0 0;
+  overflow-wrap: anywhere;
+}
+
+.reflection-summary {
+  align-items: center;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  margin-top: 6px;
+}
+
+.reflection-summary .pixel-button {
+  font-size: 12px;
+  padding: 8px 10px;
+}
+
+.reflection-form {
+  display: grid;
+  gap: 5px;
+  margin-top: 6px;
+}
+
+.reflection-options {
+  display: grid;
+  gap: 5px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.reflection-option {
+  background: var(--white);
+  border: 3px solid var(--line);
+  box-shadow: 3px 3px 0 rgba(41, 63, 58, 0.16);
+  color: var(--ink);
+  cursor: pointer;
+  font: 700 10px/1.18 var(--mono);
+  min-height: 30px;
+  padding: 4px;
+}
+
+.reflection-option[aria-pressed='true'] {
+  background: var(--green);
+}
+
+.reflection-option:focus-visible {
+  outline: 3px solid var(--pink);
+  outline-offset: 2px;
+}
+
+.reflection-note-field {
+  display: grid;
+  gap: 5px;
+}
+
+.reflection-note-field textarea {
+  background: var(--white);
+  border: 3px solid var(--line);
+  color: var(--ink);
+  font: 700 11px/1.26 var(--mono);
+  min-height: 34px;
+  padding: 5px;
+  resize: none;
+}
+
+.reflection-note-field textarea:focus {
+  outline: 3px solid var(--pink);
+  outline-offset: 2px;
+}
+
+.reflection-form-footer {
+  min-height: 16px;
+}
+
+.reflection-form-footer strong {
+  color: var(--pink);
+}
+
+.reflection-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.reflection-actions .pixel-button {
+  flex: 1 1 155px;
+  font-size: 11px;
+  min-width: 0;
+  padding: 6px 8px;
+}
+
+.artifact-card {
+  background: rgba(255, 249, 232, 0.92);
+  border-width: 3px;
+  box-shadow: 5px 5px 0 rgba(41, 63, 58, 0.18);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+  padding: 8px;
+}
+
+.artifact-card h2 {
+  font-size: 18px;
+}
+
+.artifact-toolbar {
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.artifact-toolbar .pixel-button {
+  font-size: 12px;
+  padding: 8px 10px;
+}
+
+.artifact-preview {
+  background: var(--screen-soft);
+  border: 3px solid var(--line);
+  box-sizing: border-box;
+  color: var(--ink);
+  font: 700 12px/1.4 var(--mono);
+  flex: 1 1 0;
+  min-height: 72px;
+  margin: 4px 0 0;
+  overflow: auto;
+  padding: 8px;
+  white-space: pre-wrap;
+}
+
+@keyframes badge-seal-pop {
+  0% {
+    filter: brightness(1.14);
+    transform: scale(0.96);
+  }
+
+  55% {
+    filter: brightness(1.06);
+    transform: scale(1.025);
+  }
+
+  100% {
+    filter: none;
+    transform: scale(1);
+  }
+}
+
+@keyframes badge-signal-scan {
+  0% {
+    opacity: 0.2;
+    transform: translateY(-8px);
+  }
+
+  100% {
+    opacity: 0.9;
+    transform: translateY(0);
+  }
+}
+
+@keyframes badge-route-pulse {
+  0% {
+    filter: brightness(1.24);
+    transform: translateY(0);
+  }
+
+  50% {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+  }
+
+  100% {
+    filter: none;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .badge-card-earned.badge-ceremony-seal .badge-emblem,
+  .badge-card-earned.badge-ceremony-signal::before,
+  .badge-card-earned.badge-ceremony-route-seal .badge-route-mark::after {
+      animation: none;
+    }
+}
+
+@media (max-width: 920px) {
+  .badge-screen {
+      min-height: 1260px;
+    }
+
+  .badge-layout {
+      grid-template-columns: 1fr;
+      left: 18px;
+      right: 18px;
+    }
+
+  .badge-side-stack {
+      min-height: 720px;
+    }
+
+  .badge-layout {
+      top: 18px;
+    }
+
+  .chapter-recap-grid,
+  .reflection-options {
+      grid-template-columns: 1fr;
+    }
+
+  .reflection-summary {
+      grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 560px) {
+  .badge-screen {
+      min-height: 1380px;
+    }
+
+  .badge-layout {
+      bottom: 18px;
+      gap: 14px;
+    }
+
+  .badge-actions .pixel-button,
+  .artifact-toolbar .pixel-button {
+      width: 100%;
+    }
+
+  .artifact-toolbar {
+      align-items: stretch;
+      display: grid;
+    }
+
+  .artifact-preview {
+      max-height: 440px;
+    }
+
+  .badge-emblem-block {
+      align-items: stretch;
+      display: grid;
+    }
+
+  .badge-emblem {
+      height: 108px;
+      width: 108px;
+    }
+
+  .badge-card-motif-row {
+      align-items: flex-start;
+      display: grid;
+    }
+
+  .badge-card-motif-row span:last-child {
+      text-align: left;
+    }
+}

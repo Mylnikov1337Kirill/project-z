@@ -1,0 +1,25 @@
+.status-pill {
+  background: var(--screen-soft);
+  border: 3px solid var(--line);
+  color: var(--ink);
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 7px 9px;
+  text-transform: uppercase;
+}
+
+.status-pill-open {
+  background: var(--gold);
+}
+
+.status-pill-completed {
+  background: var(--green);
+}
+
+.status-pill-locked {
+  background: #c8d5b1;
+  color: var(--muted);
+}

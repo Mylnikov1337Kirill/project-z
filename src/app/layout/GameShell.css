@@ -1,0 +1,135 @@
+.game-shell {
+  width: min(1540px, calc(100% - 24px));
+  margin: 0 auto;
+  padding: 26px 0 28px;
+  position: relative;
+}
+
+.game-shell.game-shell-fullscreen,
+.game-shell:fullscreen,
+.game-shell:-webkit-full-screen {
+  background:
+    linear-gradient(90deg, rgba(35, 48, 50, 0.05) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(35, 48, 50, 0.04) 1px, transparent 1px),
+    var(--paper);
+  background-size: 16px 16px;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  margin: 0;
+  min-height: 100vh;
+  overflow: auto;
+  padding: 24px;
+  width: 100%;
+}
+
+.game-shell.game-shell-fullscreen .screen-frame,
+.game-shell:fullscreen .screen-frame,
+.game-shell:-webkit-full-screen .screen-frame {
+  aspect-ratio: auto;
+  min-height: max(640px, calc(100vh - 146px));
+}
+
+.game-shell.game-shell-fullscreen .prep-screen,
+.game-shell:fullscreen .prep-screen,
+.game-shell:-webkit-full-screen .prep-screen,
+.game-shell.game-shell-fullscreen .badge-screen,
+.game-shell:fullscreen .badge-screen,
+.game-shell:-webkit-full-screen .badge-screen,
+.game-shell.game-shell-fullscreen .leaderboard-screen,
+.game-shell:fullscreen .leaderboard-screen,
+.game-shell:-webkit-full-screen .leaderboard-screen {
+  min-height: max(760px, calc(100vh - 146px));
+}
+
+.fullscreen-toggle {
+  align-items: center;
+  background: var(--white);
+  border: 4px solid var(--line);
+  box-shadow: 5px 5px 0 rgba(41, 63, 58, 0.22);
+  cursor: pointer;
+  display: flex;
+  height: 48px;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+  top: 26px;
+  transition:
+    box-shadow 120ms ease,
+    transform 120ms ease;
+  width: 48px;
+  z-index: 30;
+}
+
+.fullscreen-toggle:hover {
+  transform: translateY(-2px);
+}
+
+.fullscreen-toggle:focus-visible {
+  outline: 4px solid var(--green-deep);
+  outline-offset: 5px;
+}
+
+.fullscreen-toggle-active {
+  background: var(--green);
+}
+
+.game-shell.game-shell-fullscreen .fullscreen-toggle,
+.game-shell:fullscreen .fullscreen-toggle,
+.game-shell:-webkit-full-screen .fullscreen-toggle {
+  right: 24px;
+  top: 24px;
+}
+
+.fullscreen-icon {
+  display: block;
+  height: 22px;
+  position: relative;
+  width: 22px;
+}
+
+.fullscreen-corner {
+  border-color: var(--line);
+  border-style: solid;
+  height: 9px;
+  position: absolute;
+  transition:
+    height 120ms ease,
+    width 120ms ease;
+  width: 9px;
+}
+
+.fullscreen-corner-top-left {
+  border-width: 4px 0 0 4px;
+  left: 0;
+  top: 0;
+}
+
+.fullscreen-corner-top-right {
+  border-width: 4px 4px 0 0;
+  right: 0;
+  top: 0;
+}
+
+.fullscreen-corner-bottom-left {
+  border-width: 0 0 4px 4px;
+  bottom: 0;
+  left: 0;
+}
+
+.fullscreen-corner-bottom-right {
+  border-width: 0 4px 4px 0;
+  bottom: 0;
+  right: 0;
+}
+
+.fullscreen-toggle-active .fullscreen-corner {
+  height: 7px;
+  width: 7px;
+}
+
+@media (max-width: 560px) {
+  .game-shell {
+      width: min(100% - 16px, 1460px);
+      padding-top: 14px;
+    }
+}

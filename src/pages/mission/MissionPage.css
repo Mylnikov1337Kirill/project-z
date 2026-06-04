@@ -1,0 +1,53 @@
+.mission-screen {
+  aspect-ratio: auto;
+  height: min(640px, calc(100vh - 154px));
+  min-height: 0;
+}
+
+.mission-screen[data-mission-id='prompt-skeleton-assembly'] {
+  height: min(680px, calc(100vh - 132px));
+}
+
+.mission-screen[data-mission-id='spot-the-ai-risk'] .mission-layout {
+  bottom: 20px;
+  grid-template-columns: minmax(300px, 0.9fr) minmax(500px, 1.5fr) minmax(
+      290px,
+      0.85fr
+    );
+  top: 20px;
+}
+
+.mission-screen[data-mission-id='spot-the-ai-risk'] .mission-actions {
+  flex-wrap: nowrap;
+  gap: 8px;
+}
+
+.mission-screen[data-mission-id='spot-the-ai-risk'] .mission-actions .pixel-button {
+  font-size: 13px;
+  min-height: 44px;
+  padding: 8px 10px;
+}
+
+.mission-screen[data-mission-id='spot-the-ai-risk'] .mission-console {
+  gap: 10px;
+  padding: 12px;
+}
+
+.mission-screen-final {
+  background:
+    linear-gradient(135deg, rgba(229, 138, 144, 0.2) 0 18%, transparent 18%),
+    linear-gradient(315deg, rgba(226, 182, 109, 0.28) 0 16%, transparent 16%),
+    var(--screen);
+}
+
+@media (max-width: 920px) {
+  .mission-screen {
+      min-height: 1020px;
+    }
+}
+
+@media (max-width: 560px) {
+  .mission-screen {
+      min-height: 1120px;
+    }
+}
