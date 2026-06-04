@@ -176,6 +176,9 @@ paths:
   adr: docs/adr
   product_prep: docs/product
   integration_next_steps: docs/product/integration-next-steps.md
+  runsite_prep_plan: docs/deploy-runsite-prep-plan-2026-06-04.md
+  runsite_prep_subtasks: docs/deploy-runsite-prep-subtasks-2026-06-04.md
+  runsite_runbook: docs/deploy-runsite-runbook-2026-06-04.md
   map_landmark_icon_style: docs/product/map-landmark-icon-style.md
   retry_principle_content_matrix: docs/product/retry-principle-content-matrix.md
   handoff: /Users/kirillmylnikov/Dev/ai/project-z-development-handoff.md
@@ -203,6 +206,10 @@ commands:
   docker_api_build: docker build -t project-z-api:local .
   docker_api_run_smoke: docker run --rm -d --name project-z-api-smoke -p 3000:3000 project-z-api:local
   docker_proxy_smoke: docker compose -f deploy/docker-compose.yml up --build -d
+  runsite_docker_build: docker build -t project-z:deploy .
+  github_create_with_gh: gh repo create <github-owner>/project-z --private --source . --remote origin --push
+  github_push_existing_repo: git remote add origin git@github.com:<github-owner>/project-z.git && git push -u origin main
+  runsite_db_migrate: DATABASE_URL='<runsite-external-postgresql-url>' npm run db:migrate
   db_migrate: DATABASE_URL=postgres://... npm run db:migrate
   planned_own_postgres_compose_after_dbm_09: docker compose -f deploy/docker-compose.yml up --build -d
   backend_e2e_smoke: npm run test:e2e -- e2e/backend-api.spec.ts
@@ -215,6 +222,7 @@ Notes:
 - The normal npm scripts are wrapped by `scripts/run-with-supported-node.mjs`. If local `/usr/local/bin/node` is too old for Vite 8/ESLint 10, Codex sessions automatically prepend the bundled Node at `/Users/kirillmylnikov/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node`; outside Codex, use a supported Node or set `PROJECT_Z_NODE_BIN=/path/to/node`.
 - Unit tests run through `npm run test:unit`; Playwright e2e tests run through `npm run test:e2e`. BOC-08 made backend API fixture coverage part of the default Playwright suite; focused fixture smoke is `npm run test:e2e -- e2e/backend-api.spec.ts`.
 - The active Node/proxy runtime expects server-only `DATABASE_URL`; never expose DB URLs, worker tokens or future Pachca credentials through `VITE_*` env vars.
+- RunSite RSP-05 local prep status, 2026-06-04: this directory is now a git repo on `main` with first commit `f84707b Prepare Project Z RunSite deployment`. The local deploy gate passed with `node scripts/run-with-supported-node.mjs npm ci`, lint, typecheck, unit tests, build, build:server and approved Docker daemon `docker build -t project-z:deploy .`. External provisioning is not complete because this Codex session has no `gh` CLI/account dashboard access; use `docs/deploy-runsite-runbook-2026-06-04.md` with a GitHub/RunSite-authenticated session, and keep real RunSite DB URLs, generated passwords and worker tokens only in RunSite env vars and the password manager.
 - ADR-0007 is implemented: `npm run db:migrate` applies `server/db/migrations/*.sql`; real empty-DB smoke still needs a reachable Postgres `DATABASE_URL`.
 - Node backend source smoke is `npm run test:unit -- server/nodeHttp.test.ts`; it covers `GET /healthz`, a representative `/api/leaderboard` route, the target worker route, forwarded headers, the request body limit and multiple `Set-Cookie` headers. Node API parity smoke is `npm run test:unit -- server/nodeApiParity.test.ts`; it covers the current `/api/*` and admin worker contract through the Node route path with injected `ProjectZDatabase` fakes. The deployable bundle smoke is `npm run build:server`, `DATABASE_URL=postgres://... PORT=3000 npm run start:server`, then `curl -i http://127.0.0.1:3000/healthz`. The Docker/proxy smoke is `docker compose -f deploy/docker-compose.yml up -d db`, `DATABASE_URL=postgres://project_z:project_z_local_password@127.0.0.1:54321/project_z npm run db:migrate`, `PROJECT_Z_ANNOUNCEMENT_WORKER_TOKEN=local-worker-token docker compose -f deploy/docker-compose.yml up --build -d`, then `curl -i http://127.0.0.1:8080/`, `curl -i http://127.0.0.1:8080/api/me` and `docker compose -f deploy/docker-compose.yml down`.
 - The dev server may need escalated sandbox permission because listening on `127.0.0.1` can fail with `listen EPERM`.
