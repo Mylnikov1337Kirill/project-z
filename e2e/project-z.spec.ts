@@ -2570,7 +2570,9 @@ test('supports keyboard navigation on map and mission choices', async ({
     page.getByRole('heading', { level: 1, name: 'Кто автор изменений?' }),
   ).toBeVisible()
 
-  const firstAnswer = page.locator('.choice-grid button').first()
+  const firstAnswer = page.getByRole('button', {
+    name: /Остановиться: понять логику/,
+  })
 
   await firstAnswer.focus()
   await expect(firstAnswer).toBeFocused()

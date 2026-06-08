@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import type {
   PublicBossFightRoundMission,
   PublicChipOrderingMission,
@@ -13,6 +13,7 @@ import {
   canSelectChipWithinBudget,
   getChipCost,
 } from '../lib/missionAnswerHelpers'
+import { getLaunchStableAnswerDisplayItems } from '../lib/answerDisplayShuffle'
 import type { MissionSceneController } from '../lib/useMissionSceneState'
 
 type ScenarioDecisionBoardProps = {
@@ -197,9 +198,18 @@ function ScenarioDecisionBoard({
   onSelect,
   selectedOptionId,
 }: ScenarioDecisionBoardProps) {
+  const displayOptions = useMemo(
+    () =>
+      getLaunchStableAnswerDisplayItems(
+        mission.options,
+        `${mission.id}:scenario-options`,
+      ),
+    [mission.id, mission.options],
+  )
+
   return (
     <div className="choice-grid">
-      {mission.options.map((option) => (
+      {displayOptions.map((option) => (
         <button
           className={`answer-card ${
             selectedOptionId === option.id ? 'answer-card-selected' : ''
@@ -225,6 +235,15 @@ function ChipPickerBoard({
   selectedChipIds,
   selectedChipSet,
 }: ChipPickerBoardProps) {
+  const displayChips = useMemo(
+    () =>
+      getLaunchStableAnswerDisplayItems(
+        mission.chips,
+        `${mission.id}:chip-picker`,
+      ),
+    [mission.chips, mission.id],
+  )
+
   return (
     <div className="chip-picker-board">
       <div className="mission-mode-hint">
@@ -241,7 +260,7 @@ function ChipPickerBoard({
       </div>
 
       <div className="chip-grid" aria-label="Варианты ответа">
-        {mission.chips.map((chip) => {
+        {displayChips.map((chip) => {
           const isSelected = selectedChipSet.has(chip.id)
           const isBudgetLocked =
             !isSelected &&
@@ -296,6 +315,14 @@ function ChipOrderingBoard({
     selectedChipIds,
     selectedChipSet,
   } = controller
+  const displayChips = useMemo(
+    () =>
+      getLaunchStableAnswerDisplayItems(
+        mission.chips,
+        `${mission.id}:chip-ordering-bank`,
+      ),
+    [mission.chips, mission.id],
+  )
 
   return (
     <div className="ordering-board">
@@ -340,7 +367,7 @@ function ChipOrderingBoard({
       </div>
 
       <div className="chip-grid" aria-label="Карточки для сборки">
-        {mission.chips.map((chip) => (
+        {displayChips.map((chip) => (
           <button
             className={`mission-chip ${
               selectedChipSet.has(chip.id) ? 'mission-chip-used' : ''
