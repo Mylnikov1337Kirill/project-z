@@ -163,10 +163,35 @@ export function isPairMatchingReady(
   mission: PublicPairMatchingMission,
   pairMatchingAnswer: Record<string, string | null | undefined>,
 ) {
+  const assignedTargetIds = mission.items
+    .map((item) => pairMatchingAnswer[item.id])
+    .filter((targetId): targetId is string => Boolean(targetId))
+
   return (
     mission.items.length > 0 &&
-    mission.items.every((item) => Boolean(pairMatchingAnswer[item.id]))
+    assignedTargetIds.length === mission.items.length &&
+    new Set(assignedTargetIds).size === assignedTargetIds.length
   )
+}
+
+export function getPairMatchingAnswerWithAssignment(
+  mission: PublicPairMatchingMission,
+  pairMatchingAnswer: Record<string, string | null | undefined>,
+  itemId: string,
+  targetId: string,
+) {
+  const targetOwnerItem = mission.items.find(
+    (item) => item.id !== itemId && pairMatchingAnswer[item.id] === targetId,
+  )
+
+  if (targetOwnerItem) {
+    return pairMatchingAnswer
+  }
+
+  return {
+    ...pairMatchingAnswer,
+    [itemId]: targetId,
+  }
 }
 
 export function getPrimaryActionLabel(input: {

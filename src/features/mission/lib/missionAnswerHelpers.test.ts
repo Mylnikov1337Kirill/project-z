@@ -3,6 +3,7 @@ import type { PublicPairMatchingMission } from '../../../shared/types/domain'
 import {
   getAnswerSummary,
   getMissionReadyState,
+  getPairMatchingAnswerWithAssignment,
   isPairMatchingReady,
 } from './missionAnswerHelpers'
 
@@ -54,6 +55,45 @@ describe('missionAnswerHelpers pair matching', () => {
         'pii-safety': 'always-on-rule',
       }),
     ).toBe(true)
+  })
+
+  it('rejects duplicate pair matching target assignments as not ready', () => {
+    expect(
+      isPairMatchingReady(pairMatchingMission, {
+        'browser-qa': 'skill',
+        'pii-safety': 'skill',
+      }),
+    ).toBe(false)
+  })
+
+  it('keeps occupied pair matching targets from being overwritten', () => {
+    const currentAnswer = {
+      'browser-qa': 'skill',
+    }
+
+    expect(
+      getPairMatchingAnswerWithAssignment(
+        pairMatchingMission,
+        currentAnswer,
+        'pii-safety',
+        'skill',
+      ),
+    ).toBe(currentAnswer)
+  })
+
+  it('allows pair matching items to move to an empty target', () => {
+    expect(
+      getPairMatchingAnswerWithAssignment(
+        pairMatchingMission,
+        {
+          'pii-safety': 'always-on-rule',
+        },
+        'pii-safety',
+        'skill',
+      ),
+    ).toEqual({
+      'pii-safety': 'skill',
+    })
   })
 
   it('wires pair matching ready state through the generic mission helper', () => {

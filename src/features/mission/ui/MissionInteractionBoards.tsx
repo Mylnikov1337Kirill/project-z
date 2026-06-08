@@ -496,12 +496,14 @@ function PairMatchingBoard({
 
           <div className="pair-target-grid">
             {mission.targets.map((target) => {
-              const isAssignedToActive =
-                Boolean(activeItem) &&
-                pairMatchingAnswer[activeItem?.id ?? ''] === target.id
-              const assignedItems = mission.items.filter(
+              const assignedItem = mission.items.find(
                 (item) => pairMatchingAnswer[item.id] === target.id,
               )
+              const isOccupied = Boolean(assignedItem)
+              const isOccupiedByActive =
+                Boolean(activeItem) && assignedItem?.id === activeItem?.id
+              const isAssignedToActive = isOccupiedByActive
+              const isOccupiedByOtherItem = isOccupied && !isOccupiedByActive
 
               return (
                 <article
@@ -513,7 +515,9 @@ function PairMatchingBoard({
                   <button
                     aria-pressed={isAssignedToActive}
                     className="pair-target-main"
-                    disabled={isSubmitting || !activeItem}
+                    disabled={
+                      isSubmitting || !activeItem || isOccupiedByOtherItem
+                    }
                     onClick={() => {
                       if (activeItem) {
                         assignPairItemToTarget(activeItem.id, target.id)
@@ -529,18 +533,27 @@ function PairMatchingBoard({
                     className="pair-target-assignments"
                     aria-label={`Назначено в ${target.label}`}
                   >
-                    {assignedItems.length > 0 ? (
-                      assignedItems.map((item) => (
+                    {assignedItem ? (
+                      <span className="pair-assigned-control">
                         <button
                           className="pair-assigned-chip"
                           disabled={isSubmitting}
-                          key={item.id}
-                          onClick={() => selectPairItem(item.id)}
+                          onClick={() => selectPairItem(assignedItem.id)}
                           type="button"
                         >
-                          {item.label}
+                          {assignedItem.label}
                         </button>
-                      ))
+                        <button
+                          aria-label={`Очистить пару для ${assignedItem.label}`}
+                          className="pair-assigned-clear-button"
+                          disabled={isSubmitting}
+                          onClick={() => clearPairItem(assignedItem.id)}
+                          title="Очистить пару"
+                          type="button"
+                        >
+                          x
+                        </button>
+                      </span>
                     ) : (
                       <p>Пока пусто</p>
                     )}

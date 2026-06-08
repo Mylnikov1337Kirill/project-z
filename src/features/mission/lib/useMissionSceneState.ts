@@ -20,6 +20,7 @@ import {
   getActiveMission,
   getBossDossierItems,
   getMissionReadyState,
+  getPairMatchingAnswerWithAssignment,
   getPrimaryActionLabel,
   getSelectedChipCost,
 } from './missionAnswerHelpers'
@@ -298,10 +299,17 @@ export function useMissionSceneState({
     }
 
     setPairMatchingAnswer((currentAnswer) => {
-      const nextAnswer = {
-        ...currentAnswer,
-        [itemId]: targetId,
+      const nextAnswer = getPairMatchingAnswerWithAssignment(
+        activeMission,
+        currentAnswer,
+        itemId,
+        targetId,
+      )
+
+      if (nextAnswer === currentAnswer) {
+        return currentAnswer
       }
+
       const nextUnassignedItem = activeMission.items.find(
         (item) => item.id !== itemId && !nextAnswer[item.id],
       )
