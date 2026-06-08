@@ -676,7 +676,7 @@ export async function handleProjectZApiRequest(
       return jsonResponse(503, { error: mappedError.message })
     }
 
-    console.error('Project Z API error', {
+    console.error('Agent Trail API error', {
       message: mappedError instanceof Error ? mappedError.message : 'unknown',
       method: request.httpMethod,
       path: getRequestPath(request, pathOptions),

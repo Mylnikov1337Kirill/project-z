@@ -8,7 +8,7 @@ import {
   readMigrationFiles,
 } from '../../scripts/db-migrate.mjs'
 
-describe('Project Z database migration runner', () => {
+describe('Agent Trail database migration runner', () => {
   it('keeps the own PostgreSQL schema migration scoped to domain schema objects', async () => {
     const sql = await readFile(
       new URL('./migrations/202606020001_project_z_schema.sql', import.meta.url),

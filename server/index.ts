@@ -32,14 +32,14 @@ export function startProjectZNodeServer() {
   const server = createProjectZNodeServer()
 
   server.listen(port, host, () => {
-    console.info('Project Z Node API listening', {
+    console.info('Agent Trail Node API listening', {
       host,
       port,
     })
   })
 
   server.on('error', (error) => {
-    console.error('Project Z Node API failed to start', {
+    console.error('Agent Trail Node API failed to start', {
       message: error.message,
     })
     process.exitCode = 1

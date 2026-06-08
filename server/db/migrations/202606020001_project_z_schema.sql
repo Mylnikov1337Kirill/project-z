@@ -1,4 +1,4 @@
--- Clean-start Project Z schema for the own PostgreSQL backend.
+-- Clean-start Agent Trail schema for the own PostgreSQL backend.
 
 create extension if not exists pgcrypto;
 

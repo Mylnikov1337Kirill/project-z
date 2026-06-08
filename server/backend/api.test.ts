@@ -376,7 +376,7 @@ afterEach(() => {
   vi.useRealTimers()
 })
 
-describe('Project Z API routing and validation', () => {
+describe('Agent Trail API routing and validation', () => {
   it('returns a stable JSON 404 for unknown API routes', async () => {
     const { db } = createFakeDb()
 
@@ -417,7 +417,7 @@ describe('Project Z API routing and validation', () => {
   })
 })
 
-describe('Project Z pilot session and learner API', () => {
+describe('Agent Trail pilot session and learner API', () => {
   it('creates a secure httpOnly pilot cookie from forwarded HTTPS requests', async () => {
     const { calls, db } = createFakeDb({
       createPilotSession: (methodInput) => ({
@@ -875,7 +875,7 @@ describe('Project Z pilot session and learner API', () => {
   })
 })
 
-describe('Project Z mission attempt API', () => {
+describe('Agent Trail mission attempt API', () => {
   it('records mission starts through the database without returning fraud details', async () => {
     const { chapter, mission } = getFirstScenarioMission()
     const { calls, db } = createFakeDb()
@@ -1333,7 +1333,7 @@ describe('Project Z mission attempt API', () => {
     const logged = JSON.stringify(consoleError.mock.calls)
 
     expect(response.statusCode).toBe(500)
-    expect(consoleError).toHaveBeenCalledWith('Project Z API error', {
+    expect(consoleError).toHaveBeenCalledWith('Agent Trail API error', {
       message: 'database transport failed',
       method: 'POST',
       path: `/api/missions/${mission.id}/attempts`,
@@ -1393,7 +1393,7 @@ describe('Project Z mission attempt API', () => {
   })
 })
 
-describe('Project Z QA pass mission API', () => {
+describe('Agent Trail QA pass mission API', () => {
   it('returns the existing not-found response when the server QA flag is disabled', async () => {
     delete process.env.PROJECT_Z_QA_PASS
     const { chapter, mission } = getFirstScenarioMission()
@@ -1590,7 +1590,7 @@ describe('Project Z QA pass mission API', () => {
   })
 })
 
-describe('Project Z leaderboard API', () => {
+describe('Agent Trail leaderboard API', () => {
   it('returns the shared backend aggregate without full names', async () => {
     const { calls, db } = createFakeDb({
       getLeaderboardEntries: () => [

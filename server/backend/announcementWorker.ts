@@ -91,7 +91,7 @@ function createDryRunPreview(delivery: AnnouncementDelivery) {
   return (
     `@${learner.nickname} закрыл главу «${getChapterTitle(
       badgeAward.chapterId,
-    )}» в Project Z и получил награду «${badgeAward.badgeNameSnapshot}». ` +
+    )}» в Agent Trail и получил награду «${badgeAward.badgeNameSnapshot}». ` +
     `Прогресс маршрута: ${badgeAward.completedChapters}/${chapters.length}.`
   )
 }
@@ -193,7 +193,7 @@ async function processDelivery(input: {
       }
     }
 
-    console.info('Project Z announcement dry-run recorded', {
+    console.info('Agent Trail announcement dry-run recorded', {
       deliveryId: input.delivery.id,
       mode: input.mode,
     })
@@ -304,7 +304,7 @@ export async function handleAnnouncementWorkerRequest(
       return jsonResponse(500, { error: 'Announcement worker database failed.' })
     }
 
-    console.error('Project Z announcement worker error', {
+    console.error('Agent Trail announcement worker error', {
       message: error instanceof Error ? error.message : 'unknown',
       path: request.path,
     })

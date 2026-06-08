@@ -1,4 +1,4 @@
-# Project Z SQL migrations
+# Agent Trail SQL migrations
 
 Place own-PostgreSQL `.sql` migration files here. `npm run db:migrate`
 applies them in lexical order and records successful files in

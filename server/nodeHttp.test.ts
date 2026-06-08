@@ -73,7 +73,7 @@ afterEach(() => {
   )
 })
 
-describe('Project Z Node HTTP runtime routing', () => {
+describe('Agent Trail Node HTTP runtime routing', () => {
   it('serves the healthcheck without touching backend dependencies', async () => {
     const response = await handleProjectZNodeRequest(
       createBackendRequest({ path: '/healthz' }),
@@ -138,9 +138,9 @@ describe('Project Z Node HTTP runtime routing', () => {
   })
 })
 
-describe('Project Z Node static SPA serving', () => {
+describe('Agent Trail Node static SPA serving', () => {
   const indexHtml =
-    '<!doctype html><html><head><title>Project Z</title></head><body><div id="root"></div></body></html>'
+    '<!doctype html><html><head><title>Agent Trail</title></head><body><div id="root"></div></body></html>'
   const assetBody = 'console.log("project-z");'
   let distDirectory = ''
 
@@ -262,7 +262,7 @@ describe('Project Z Node static SPA serving', () => {
   })
 })
 
-describe('Project Z Node request adapter', () => {
+describe('Agent Trail Node request adapter', () => {
   it('preserves forwarded host/protocol headers and request bodies', async () => {
     const request = createIncomingMessage({
       body: '{"publicCode":"pilot-alpha"}',

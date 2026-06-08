@@ -419,7 +419,7 @@ function logRequest(input: {
   request: BackendRequest
   response: BackendResponse
 }) {
-  input.logger.info('Project Z Node request', {
+  input.logger.info('Agent Trail Node request', {
     durationMs: input.durationMs,
     method: input.request.httpMethod,
     path: getRequestPath(input.request),
@@ -457,7 +457,7 @@ export async function handleIncomingNodeRequest(
         : jsonResponse(500, { error: 'Сервер не смог обработать запрос.' })
 
     if (!(error instanceof RequestError)) {
-      logger.error('Project Z Node request failed', {
+      logger.error('Agent Trail Node request failed', {
         message: error instanceof Error ? error.message : 'unknown',
         method: nodeRequest.method ?? 'GET',
         path: backendRequest ? getRequestPath(backendRequest) : '/',
