@@ -66,7 +66,7 @@ export function TrapFieldGuidePage({
       } catch {
         if (isMounted) {
           setLoadError(
-            'Z-бот не смог открыть записи ловушек. Вернись на карту и попробуй ещё раз.',
+            'Kilian не смог открыть записи ловушек. Вернись на карту и попробуй ещё раз.',
           )
         }
       } finally {
@@ -106,7 +106,7 @@ export function TrapFieldGuidePage({
         <div className="screen-frame trap-guide-screen">
           <div className="trap-guide-layout">
             <PixelPanel className="trap-guide-summary">
-              <p className="status-pill status-pill-open">записи Z-бота</p>
+              <p className="status-pill status-pill-open">записи Kilian</p>
               <h2>Пойманные сигналы</h2>
               <p>
                 Здесь остаются повторяемые ловушки, которые уже встретились в
@@ -138,7 +138,7 @@ export function TrapFieldGuidePage({
             >
               {isLoading ? (
                 <p className="trap-guide-message trap-guide-message-loading">
-                  Z-бот сверяет записи...
+                  Kilian сверяет записи...
                 </p>
               ) : loadError ? (
                 <p className="trap-guide-message trap-guide-message-error">
@@ -147,7 +147,7 @@ export function TrapFieldGuidePage({
               ) : discoveredTrapConcepts.length === 0 ? (
                 <p className="trap-guide-message trap-guide-message-empty">
                   Записей пока нет. Когда в сцене встретится повторяемая
-                  ловушка, Z-бот добавит её сюда.
+                  ловушка, Kilian добавит её сюда.
                 </p>
               ) : (
                 <ol className="trap-guide-list" aria-label="Открытые ловушки">

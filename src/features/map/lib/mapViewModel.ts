@@ -306,7 +306,7 @@ export function getSelectedChapterDetails(input: {
       ? getRouteCompleteMentorPrompt()
     : {
         title: 'Выбери узел маршрута',
-        copy: 'Наведи фокус на главу, чтобы увидеть сигнал Z-бота.',
+        copy: 'Наведи фокус на главу, чтобы увидеть сигнал Kilian.',
       }
 
   return {

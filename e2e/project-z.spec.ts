@@ -738,7 +738,7 @@ async function expectBadgeMastery(
   const mastery = page.getByLabel('Ты теперь умеешь')
 
   await expect(mastery).toBeVisible()
-  await expect(mastery).toContainText('Z-бот фиксирует навык')
+  await expect(mastery).toContainText('Kilian фиксирует навык')
   await expect(
     mastery.getByRole('heading', { name: 'Ты теперь умеешь' }),
   ).toBeVisible()
@@ -756,7 +756,7 @@ async function expectMentorTakeaway(
     text: RegExp | string
   },
 ) {
-  const takeaway = page.getByLabel('Короткий итог от Z-бота')
+  const takeaway = page.getByLabel('Короткий итог от Kilian')
 
   await expect(takeaway).toBeVisible()
   await expect(takeaway).toContainText(input.text)
@@ -1068,7 +1068,7 @@ test('opens the identity screen', async ({ page }) => {
   await page.goto('/')
 
   await expect(
-    page.getByRole('heading', { level: 1, name: 'Project Z' }),
+    page.getByRole('heading', { level: 1, name: 'Agent Trail' }),
   ).toBeVisible()
   await expect(page.getByLabel('Позывной')).toBeVisible()
   await expect(page.getByRole('button', { name: 'Войти на карту' })).toBeVisible()
@@ -1350,7 +1350,7 @@ test('does not repeat the fresh unlock cue after reload during the reveal window
   })
   await page.goto('/map?qa=1')
 
-  const mentorDialog = page.getByLabel('Диалог Z-бота')
+  const mentorDialog = page.getByLabel('Диалог Kilian')
 
   await expect(mentorDialog).toContainText('Открыт новый узел')
   await expect(page.locator('.route-unlock-line')).toBeVisible()
@@ -1385,7 +1385,7 @@ test('shows a completed world state across the whole route map', async ({
     '14,68 27,48 40,61 53,39 65,54 77,38 87,55 94,29',
   )
 
-  const mentorDialog = page.getByLabel('Диалог Z-бота')
+  const mentorDialog = page.getByLabel('Диалог Kilian')
 
   await expect(mentorDialog).toContainText('Маршрут закрыт')
   await expect(mentorDialog).toContainText('Все главы пройдены')
@@ -1468,8 +1468,8 @@ test('previews and exports chapter markdown files from the final archive', async
     'Перед ближайшим ревью покажу цель, границы и проверку.',
   )
   await expect(preview).not.toContainText(rewardCardLearner.fullName)
-  await expect(preview).not.toContainText('# Финальный отчёт Project Z')
-  await expect(preview).not.toContainText('project-z-final-report.md')
+  await expect(preview).not.toContainText('# Финальный отчёт Agent Trail')
+  await expect(preview).not.toContainText('agent-trail-final-report.md')
 
   for (const chapter of chapters) {
     for (const artifact of getChapterArtifacts(chapter)) {
@@ -1794,7 +1794,7 @@ test('shows patrol before completion and a replay reward entry after completion'
   await page.goto('/chapters/chapter-2?qa=1')
   const rewardShowcase = page.locator('.chapter-reward-showcase')
   const rewardLink = page.getByRole('link', { name: 'Открыть награду' })
-  const mentorDialog = page.getByLabel('Диалог Z-бота')
+  const mentorDialog = page.getByLabel('Диалог Kilian')
 
   await expect(page.locator('.chapter-patrol-zone')).toHaveCount(0)
   await expect(
@@ -1880,7 +1880,7 @@ test('renders prep instruction carousel across every chapter prep scene', async 
 
       const carousel = page.getByLabel('Опорные правила')
       await expect(carousel).toBeVisible()
-      await expect(carousel).toContainText('Z-BOT INSTRUCTION STACK')
+      await expect(carousel).toContainText('KILIAN INSTRUCTION STACK')
       await expect(carousel).toContainText(`RULE 01/${totalRuleNumber}`)
       await expect(carousel.locator('.prep-instruction-card')).toHaveCount(
         chapter.prep.checklist.length,
@@ -2528,8 +2528,8 @@ test('saves, edits, skips, and exports badge reflection', async ({
   await expect(artifactPreview).toContainText(
     'Заметка пропущена на экране награды',
   )
-  await expect(artifactPreview).not.toContainText('# Финальный отчёт Project Z')
-  await expect(artifactPreview).not.toContainText('project-z-final-report.md')
+  await expect(artifactPreview).not.toContainText('# Финальный отчёт Agent Trail')
+  await expect(artifactPreview).not.toContainText('agent-trail-final-report.md')
   await expect(artifactPreview).not.toContainText(
     'Добавлю критерий приёмки к задаче.',
   )
@@ -2855,7 +2855,7 @@ test('shows mentor takeaway robot states after mission results', async ({
     progress: getChapterOneMissionProgress([]),
   })
   await page.goto('/chapters/chapter-1/missions/who-owns-the-diff?qa=1')
-  await expect(page.getByLabel('Короткий итог от Z-бота')).toHaveCount(0)
+  await expect(page.getByLabel('Короткий итог от Kilian')).toHaveCount(0)
   await page
     .getByRole('button', { name: /Остановиться: понять логику/ })
     .click()
@@ -3071,7 +3071,7 @@ test('assembles the final playbook prompt contract scene', async ({ page }) => {
   await page.locator('.mission-brief-dossier-button').click()
   await expect(
     page.getByRole('dialog', { name: 'Бриф prompt-контракта' }),
-  ).toContainText('Входящее задание от Z-бота')
+  ).toContainText('Входящее задание от Kilian')
   await expect(
     page.getByRole('dialog', { name: 'Бриф prompt-контракта' }),
   ).toContainText('Опасность')
@@ -3470,7 +3470,7 @@ test('shows session-only trap field guide intro on the map after the first canon
 
   await page.goto('/map?qa=1')
 
-  const mentorDialog = page.getByLabel('Диалог Z-бота')
+  const mentorDialog = page.getByLabel('Диалог Kilian')
 
   await expect(
     page.getByRole('link', { name: 'Справочник ловушек' }),
@@ -3522,7 +3522,7 @@ test('waits for the fresh unlock cue before showing the trap field guide intro',
   })
   await page.goto('/map?qa=1')
 
-  const mentorDialog = page.getByLabel('Диалог Z-бота')
+  const mentorDialog = page.getByLabel('Диалог Kilian')
 
   await expect(mentorDialog).toContainText('Открыт новый узел')
   await expect(mentorDialog).not.toContainText(
@@ -3544,7 +3544,7 @@ test('opens the trap field guide from the session map intro', async ({
   })
   await page.goto('/map?qa=1')
 
-  const mentorDialog = page.getByLabel('Диалог Z-бота')
+  const mentorDialog = page.getByLabel('Диалог Kilian')
 
   await expect(mentorDialog).toContainText(
     'Новая механика: память ловушек',
@@ -3652,7 +3652,7 @@ test('reveals failed boss dossier details and clears them on retry', async ({
   await expect(dossier.getByText('Очищено')).toHaveCount(0)
   await expect(dossier.getByText('Нужен разбор')).toHaveCount(0)
   await expect(dossier.getByText(/Ловушка:/)).toHaveCount(0)
-  await expect(dossier.getByLabel('Итог раунда от Z-бота')).toHaveCount(0)
+  await expect(dossier.getByLabel('Итог раунда от Kilian')).toHaveCount(0)
   await expect(dossierToggle).toHaveAttribute('aria-expanded', 'true')
   await page.keyboard.press('Escape')
   await expect(page.getByRole('dialog', { name: 'Досье боя' })).toHaveCount(0)
@@ -3690,8 +3690,8 @@ test('reveals failed boss dossier details and clears them on retry', async ({
   await expect(
     dossier.getByLabel('Подсказка для повторной попытки раунда'),
   ).toContainText(/доказательством результата/)
-  await expect(dossier.getByLabel('Итог раунда от Z-бота')).toBeVisible()
-  await expect(dossier.getByLabel('Итог раунда от Z-бота')).toContainText(
+  await expect(dossier.getByLabel('Итог раунда от Kilian')).toBeVisible()
+  await expect(dossier.getByLabel('Итог раунда от Kilian')).toContainText(
     /В заметке к ревью называй границы/,
   )
 

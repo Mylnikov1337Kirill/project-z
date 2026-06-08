@@ -5,7 +5,7 @@ export function LoadingScreen() {
   return (
     <section className="system-stage" aria-label="Загрузка карты">
       <div className="screen-frame system-screen">
-        <PixelPanel className="system-panel system-panel-loading" title="Project Z">
+        <PixelPanel className="system-panel system-panel-loading" title="Agent Trail">
           <span className="system-loader" aria-hidden="true" />
           <p>Собираю маршрут и проверяю открытые главы...</p>
         </PixelPanel>
@@ -22,7 +22,7 @@ export function ErrorScreen({ message }: { message: string }) {
       <div className="screen-frame system-screen system-screen-error">
         <PixelPanel className="system-panel system-panel-error" title="Сигнал карты сбился">
           <p>
-            Z-бот не смог собрать маршрут. Обнови страницу, чтобы попробовать
+            Kilian не смог собрать маршрут. Обнови страницу, чтобы попробовать
             заново.
           </p>
           <p className="system-hint">

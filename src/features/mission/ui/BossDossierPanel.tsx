@@ -135,7 +135,7 @@ export function BossDossierPanel({
                     ? 'boss-dossier-takeaway-cleared'
                     : 'boss-dossier-takeaway-review'
                 }`}
-                aria-label="Итог раунда от Z-бота"
+                aria-label="Итог раунда от Kilian"
               >
                 <span className="boss-dossier-takeaway-signal" aria-hidden="true" />
                 <div>

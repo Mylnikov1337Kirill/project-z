@@ -214,7 +214,7 @@ test('marks backend unlock cues seen before reload and reads leaderboard aggrega
 
   await page.goto('/map?qa=1')
 
-  const mentorDialog = page.getByLabel('Диалог Z-бота')
+  const mentorDialog = page.getByLabel('Диалог Kilian')
 
   await expect(mentorDialog).toContainText('Открыт новый узел')
   await expect(page.locator('.route-unlock-line')).toBeVisible()

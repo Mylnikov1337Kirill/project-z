@@ -81,7 +81,7 @@ type MissionInteractionBoardProps = {
 }
 
 export const PROMPT_DOSSIER_REQUEST_EVENT =
-  'project-z:open-prompt-dossier'
+  'agent-trail:open-prompt-dossier'
 
 function getCardCountLabel(count: number) {
   const lastTwoDigits = count % 100

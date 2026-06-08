@@ -248,7 +248,7 @@ function PromptAssemblyBriefingModal({
             <span className="prompt-briefing-mouth" />
           </div>
           <div>
-            <p className="eyebrow">Входящее задание от Z-бота</p>
+            <p className="eyebrow">Входящее задание от Kilian</p>
             <h2>Собери prompt-контракт</h2>
             <p>{action}</p>
           </div>

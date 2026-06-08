@@ -1,1 +1,1 @@
-export const staticContentVersion = 'project-z-static-content-v3'
+export const staticContentVersion = 'agent-trail-static-content-v1'

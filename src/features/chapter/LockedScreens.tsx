@@ -24,7 +24,7 @@ export function MissionLocked({
         <div className="screen-frame locked-screen">
           <PixelPanel className="system-panel system-panel-locked" title="Сначала предыдущая сцена">
             <p>
-              Z-бот держит маршрут по порядку: вернись к брифингу и продолжи с
+              Kilian держит маршрут по порядку: вернись к брифингу и продолжи с
               доступной практики.
             </p>
             <Link

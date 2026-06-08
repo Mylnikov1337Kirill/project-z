@@ -63,7 +63,7 @@ export function useLeaderboardEntries(input: {
         if (isMounted) {
           setState({
             entries: [],
-            error: 'Z-бот не смог собрать доску лидеров.',
+            error: 'Kilian не смог собрать доску лидеров.',
             loadedKey: requestKey,
           })
         }

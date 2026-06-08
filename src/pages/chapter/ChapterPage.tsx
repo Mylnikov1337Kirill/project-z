@@ -97,7 +97,7 @@ export function ChapterPage({ chapters, learner, progress }: GamePageProps) {
 
       <section className="chapter-stage" aria-label={`Глава ${chapter.title}`}>
         <div className={`screen-frame chapter-screen chapter-screen-${state}`}>
-          <MentorDialog eyebrow="Z-бот" title={mentorTitle}>
+          <MentorDialog eyebrow="Kilian" title={mentorTitle}>
             <p>{mentorCopy}</p>
           </MentorDialog>
 
@@ -133,7 +133,7 @@ export function ChapterPage({ chapters, learner, progress }: GamePageProps) {
             </aside>
           ) : (
             <aside
-              aria-label="Z-бот патрулирует главу"
+              aria-label="Kilian патрулирует главу"
               className={`chapter-side-stage chapter-patrol-zone chapter-patrol-zone-${state}`}
             >
               <div className="chapter-patrol-track" aria-hidden="true">

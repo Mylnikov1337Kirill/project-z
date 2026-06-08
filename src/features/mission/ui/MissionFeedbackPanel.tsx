@@ -124,7 +124,7 @@ export function MissionFeedbackPanel({
       <div className="mission-feedback-header">
         <MentorResultRobot state={mentorState} />
         <div>
-          <p className="eyebrow">Z-бот</p>
+          <p className="eyebrow">Kilian</p>
           <h2>
             {result
               ? result.passed
@@ -145,7 +145,7 @@ export function MissionFeedbackPanel({
       {result && takeaway ? (
         <section
           className={`mentor-takeaway mentor-takeaway-${mentorState}`}
-          aria-label="Короткий итог от Z-бота"
+          aria-label="Короткий итог от Kilian"
         >
           <span className="mentor-takeaway-signal" aria-hidden="true" />
           <div>

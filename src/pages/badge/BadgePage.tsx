@@ -238,7 +238,7 @@ export function BadgePage({ chapters, learner, progress }: GamePageProps) {
 
               <div className="badge-mastery" aria-label="Ты теперь умеешь">
                 <span className="badge-mastery-kicker">
-                  Z-бот фиксирует навык
+                  Kilian фиксирует навык
                 </span>
                 <h3>Ты теперь умеешь</h3>
                 <ul>

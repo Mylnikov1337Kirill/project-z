@@ -35,8 +35,8 @@ export function BossArena({
   const dossierCueId = 'boss-dossier-cue'
   const dossierCueText =
     lockedRoundCount === 1
-      ? `Z-бот: первый ход сохранён в досье. Открой «Досье ${lockedRoundCount}/${bossRoundCount}», чтобы держать память боя под рукой.`
-      : `Z-бот: зафиксированные ходы лежат в досье. Открой «Досье ${lockedRoundCount}/${bossRoundCount}», чтобы сверить память боя.`
+      ? `Kilian: первый ход сохранён в досье. Открой «Досье ${lockedRoundCount}/${bossRoundCount}», чтобы держать память боя под рукой.`
+      : `Kilian: зафиксированные ходы лежат в досье. Открой «Досье ${lockedRoundCount}/${bossRoundCount}», чтобы сверить память боя.`
 
   return (
     <div className="boss-arena" aria-label="Стадии финального боя">

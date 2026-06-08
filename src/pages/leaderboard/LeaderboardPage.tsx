@@ -44,7 +44,7 @@ export function LeaderboardPage({
         title="Закрытые главы"
       />
 
-      <section className="chapter-stage" aria-label="Доска лидеров Project Z">
+      <section className="chapter-stage" aria-label="Доска лидеров Agent Trail">
         <div className="screen-frame leaderboard-screen">
           <div className="leaderboard-layout">
             <PixelPanel className="leaderboard-summary">
@@ -112,7 +112,7 @@ export function LeaderboardPage({
 
               {isLoading ? (
                 <p className="leaderboard-message leaderboard-message-loading">
-                  Z-бот сверяет маршрут...
+                  Kilian сверяет маршрут...
                 </p>
               ) : error ? (
                 <p className="leaderboard-message leaderboard-message-error">

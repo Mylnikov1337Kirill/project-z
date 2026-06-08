@@ -17,9 +17,9 @@ export type LaunchStableAnswerDisplayShuffleOptions = {
   storage?: AnswerDisplayShuffleStorage | null
 }
 
-const STORAGE_KEY_PREFIX = 'project-z:answer-display-shuffle:v1'
+const STORAGE_KEY_PREFIX = 'agent-trail:answer-display-shuffle:v1'
 const KEY_SEPARATOR = '\u001f'
-const SSR_LAUNCH_SEED = 'project-z-answer-display-ssr-launch'
+const SSR_LAUNCH_SEED = 'agent-trail-answer-display-ssr-launch'
 
 const launchOrderCache = new Map<string, string[]>()
 
@@ -272,7 +272,7 @@ function createAnswerDisplayLaunchSeed() {
   }
 
   return [
-    'project-z-answer-display-browser-launch',
+    'agent-trail-answer-display-browser-launch',
     Date.now().toString(36),
     Math.random().toString(36).slice(2),
   ].join('-')

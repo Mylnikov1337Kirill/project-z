@@ -27,7 +27,7 @@ const prepBootSteps = [
     detail: 'чек-лист подсвечен',
   },
   {
-    label: 'Канал Z-бота',
+    label: 'Канал Kilian',
     detail: 'сигнал стабилен',
   },
   {
@@ -102,7 +102,7 @@ function PrepInstructionCarousel({ items }: PrepInstructionCarouselProps) {
   return (
     <section className="prep-instruction-carousel" aria-label="Опорные правила">
       <div className="prep-instruction-header">
-        <span>Z-BOT INSTRUCTION STACK</span>
+        <span>KILIAN INSTRUCTION STACK</span>
         <strong>
           RULE {activeRuleNumber}/{totalRuleNumber}
         </strong>

@@ -136,7 +136,7 @@ export function CourseCloseoutPage({
         if (isMounted) {
           setDataState({
             dataKey: closeoutDataKey,
-            error: 'Z-бот не смог загрузить локальные заметки.',
+            error: 'Kilian не смог загрузить локальные заметки.',
             reflections: [],
           })
         }
@@ -212,7 +212,7 @@ export function CourseCloseoutPage({
         title="Архив глав"
       />
 
-      <section className="chapter-stage" aria-label="Архив глав Project Z">
+      <section className="chapter-stage" aria-label="Архив глав Agent Trail">
         <div className="screen-frame closeout-screen">
           <div className="closeout-layout">
             <PixelPanel className="closeout-library-card" title="Файлы глав">
@@ -290,7 +290,7 @@ export function CourseCloseoutPage({
                 <p className="closeout-data-note">{dataState.error}</p>
               ) : isCloseoutLoading ? (
                 <p className="closeout-data-note">
-                  Z-бот собирает локальные заметки...
+                  Kilian собирает локальные заметки...
                 </p>
               ) : null}
             </PixelPanel>

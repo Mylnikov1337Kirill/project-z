@@ -451,17 +451,17 @@ export function WorldMap({
             </Link>
           </>
         }
-        eyebrow="Project Z"
+        eyebrow="Agent Trail"
         learner={learner}
         rank={currentRank}
         title="Карта практик ИИ-разработки"
       />
 
-      <section className="map-stage" aria-label="Карта глав Project Z">
+      <section className="map-stage" aria-label="Карта глав Agent Trail">
         <div className="screen-frame map-screen">
           <div className="map-sky" />
 
-          <MentorDialog eyebrow="Z-бот" title={displayedMentorPrompt.title}>
+          <MentorDialog eyebrow="Kilian" title={displayedMentorPrompt.title}>
             <p>{displayedMentorPrompt.copy}</p>
             {shouldShowFieldGuideCue ? (
               <div className="map-trap-guide-actions">

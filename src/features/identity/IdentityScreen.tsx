@@ -25,7 +25,7 @@ export function IdentityScreen({ onIdentify }: IdentityScreenProps) {
     const trimmedFullName = fullName.trim()
 
     if (!trimmedNickname || !trimmedFullName) {
-      setError('Z-боту нужны позывной и имя для маршрута.')
+      setError('Kilian просит позывной и имя для маршрута.')
       return
     }
 
@@ -51,11 +51,11 @@ export function IdentityScreen({ onIdentify }: IdentityScreenProps) {
 
   return (
     <>
-      <section className="identity-stage" aria-label="Вход в Project Z">
-        <div className="identity-hero" aria-label="Интро Project Z">
+      <section className="identity-stage" aria-label="Вход в Agent Trail">
+        <div className="identity-hero" aria-label="Интро Agent Trail">
           <div className="intro-copy">
             <p className="eyebrow intro-kicker">Вход на карту</p>
-            <h1>Project Z</h1>
+            <h1>Agent Trail</h1>
             <p className="identity-tagline">
               Игра про работу с ИИ-агентами: ставь задачи, принимай изменения,
               находи риски, проверяй результат.
@@ -69,9 +69,9 @@ export function IdentityScreen({ onIdentify }: IdentityScreenProps) {
             </div>
 
             <div className="intro-bubble">
-              <p className="eyebrow">Z-бот</p>
+              <p className="eyebrow">Kilian</p>
               <h2>
-                Привет, я Z-бот. Пойдём разбирать задачи для ИИ-агентов,
+                Привет, я Kilian. Пойдём разбирать задачи для ИИ-агентов,
                 мутные изменения и риски перед ревью.
               </h2>
               <div className="intro-script">
@@ -95,7 +95,7 @@ export function IdentityScreen({ onIdentify }: IdentityScreenProps) {
 
         <PixelPanel className="identity-card" title="Назови оператора">
           <p className="identity-card-copy">
-            Выбери позывной для карты. Z-бот будет обращаться к тебе так в
+            Выбери позывной для карты. Kilian будет обращаться к тебе так в
             брифингах и наградах.
           </p>
 
@@ -119,7 +119,7 @@ export function IdentityScreen({ onIdentify }: IdentityScreenProps) {
                 autoComplete="name"
                 maxLength={60}
                 onChange={(event) => setFullName(event.target.value)}
-                placeholder="Кирилл Мыльников"
+                placeholder="Имя Фамилия"
                 type="text"
                 value={fullName}
               />
