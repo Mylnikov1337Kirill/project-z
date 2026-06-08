@@ -1,4 +1,4 @@
-# Project Z integration next steps
+# Agent Trail integration next steps
 
 Status: readiness checklist plus backend/DB slice status. The active DB implementation is own PostgreSQL through `ProjectZDatabase`, backend fixture smoke covers identity/progress/traps/reflections, mission submit, leaderboard and unlock-seen behavior, and a token-protected backend Pachca dry-run worker can drain `announcement_deliveries`. BOC-01 through BOC-08 removed the supported frontend local mode and made backend API fixture coverage the default Playwright path. The active runtime path is now the Dockerized Node API behind the nginx reverse proxy. Docker Compose DB/API/proxy smoke, real-backend e2e and live Pachca delivery are still pending.
 
@@ -60,7 +60,7 @@ Active cleanup target: finish backend-only docs, hardening and rollout verificat
 This copy is for a future backend sender only. Do not show it on badge, leaderboard, map or mission screens.
 
 ```text
-@{nickname} закрыл главу «{chapterTitle}» в Project Z и получил награду «{badgeName}».
+@{nickname} закрыл главу «{chapterTitle}» в Agent Trail и получил награду «{badgeName}».
 Прогресс маршрута: {completedChapters}/7.
 Главное правило этой главы: автор отвечает за AI-assisted diff как за свой инженерный результат.
 ```
@@ -68,7 +68,7 @@ This copy is for a future backend sender only. Do not show it on badge, leaderbo
 Fallback without a mention handle:
 
 ```text
-Игрок Project Z закрыл главу «{chapterTitle}» и получил награду «{badgeName}».
+Игрок Agent Trail закрыл главу «{chapterTitle}» и получил награду «{badgeName}».
 Прогресс маршрута: {completedChapters}/7.
 ```
 

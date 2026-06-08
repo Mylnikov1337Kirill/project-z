@@ -1,6 +1,6 @@
 # Rules Inventory
 
-Status: Project Z local education kit placeholder.
+Status: Agent Trail local education kit placeholder.
 
 Use this template to separate persistent rules from scoped rules, unsafe
 examples and stale notes. Keep examples synthetic.

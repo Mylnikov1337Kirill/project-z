@@ -1,6 +1,6 @@
 # Skill Draft
 
-Status: Project Z local education kit placeholder.
+Status: Agent Trail local education kit placeholder.
 
 Use this template for a tool-agnostic reusable procedure. It is not a prompt
 archive and does not require any specific `SKILL.md` format.

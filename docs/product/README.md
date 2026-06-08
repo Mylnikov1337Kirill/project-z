@@ -1,6 +1,6 @@
-# Project Z AI-ready prep pack
+# Agent Trail AI-ready prep pack
 
-Этот пакет нужен, чтобы Project Z сам жил по правилам, которым учит: понятный repo context перед agentic diff, явные проверки и self-review перед передачей результата дальше.
+Этот пакет нужен, чтобы Agent Trail сам жил по правилам, которым учит: понятный repo context перед agentic diff, явные проверки и self-review перед передачей результата дальше.
 
 Используй эти документы перед следующими AI-assisted изменениями в проекте:
 
@@ -16,7 +16,7 @@
 
 ## Что входит
 
-- `repo-context-inventory.md` -- адаптированный repo context inventory для Project Z.
+- `repo-context-inventory.md` -- адаптированный repo context inventory для Agent Trail.
 - `../backend-only-cutover-subtasks-2026-06-02.md` -- активная разбивка/status BOC-00..BOC-12 для backend-only cutover.
 - `integration-next-steps.md` -- Phase 9 checklist для backend, Supabase и Pachca без реализации интеграций.
 - `../architecture-backend-migration-audit-2026-06-01.md` -- исторический аудит pre-cutover frontend/local-first архитектуры и карта кандидатов на backend/DB.
@@ -43,7 +43,7 @@
 
 Use these files before changing teaching content for each chapter:
 
-| Project Z content | Education sources |
+| Agent Trail content | Education sources |
 | --- | --- |
 | Chapter 1: ИИ как инженерный инструмент | `modules/01-ai-as-engineering-tool.md`, `templates/ai-pr-self-review.md` |
 | Chapter 2: Постановка задачи | `modules/02-task-framing.md`, `templates/task-brief.md` |

@@ -1,6 +1,6 @@
 # Module 08: Rules & Skills
 
-Status: Project Z local education kit placeholder.
+Status: Agent Trail local education kit placeholder.
 
 Use this module as the source stub for visible Chapter 5, `Rules & Skills`.
 The chapter is tool-agnostic and teaches agent management through durable

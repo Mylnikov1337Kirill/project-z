@@ -1,6 +1,6 @@
 # 1. Architecture overview
 
-Project Z is a Vite + React SPA whose active persistence target is backend-only through Node `/api/*`. There is no supported local persistence mode; backend-only cleanup and verification are tracked in `docs/backend-only-cutover-subtasks-2026-06-02.md`. The frontend is organized by layers: application bootstrap and routing stay in `app`, route-level screens stay in `pages`, product workflows stay in `features`, domain rules stay in `entities`, and reusable infrastructure stays in `shared`.
+Agent Trail is a Vite + React SPA whose active persistence target is backend-only through Node `/api/*`. There is no supported local persistence mode; backend-only cleanup and verification are tracked in `docs/backend-only-cutover-subtasks-2026-06-02.md`. The frontend is organized by layers: application bootstrap and routing stay in `app`, route-level screens stay in `pages`, product workflows stay in `features`, domain rules stay in `entities`, and reusable infrastructure stays in `shared`.
 
 The main goal of the structure is predictable ownership. A route can assemble data and features, a feature can express a user workflow, an entity can hold domain rules, and shared modules must remain generic enough to be reused without knowing the product flow.
 

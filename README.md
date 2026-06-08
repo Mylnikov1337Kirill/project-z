@@ -1,6 +1,6 @@
-# Project Z
+# Agent Trail
 
-Project Z - retro-оболочка обучающей игры про осознанное использование AI и agentic tools в инженерной работе.
+Agent Trail - retro-оболочка обучающей игры про осознанное использование AI и agentic tools в инженерной работе.
 
 ## Development context
 
@@ -18,7 +18,7 @@ Project Z - retro-оболочка обучающей игры про осозн
 
 ## Commands
 
-Project Z requires Node `>=20.19.0`. The repo includes `.nvmrc`,
+Agent Trail requires Node `>=20.19.0`. The repo includes `.nvmrc`,
 `.node-version`, and `.npmrc` with `engine-strict=true` so installs happen on a
 supported runtime.
 
@@ -196,10 +196,10 @@ and the admin worker auth/dry-run path.
 Build and smoke the Node API image:
 
 ```bash
-docker build -t project-z-api:local .
-docker run --rm -d --name project-z-api-smoke -p 3000:3000 project-z-api:local
+docker build -t agent-trail-api:local .
+docker run --rm -d --name agent-trail-api-smoke -p 3000:3000 agent-trail-api:local
 curl -i http://127.0.0.1:3000/healthz
-docker stop project-z-api-smoke
+docker stop agent-trail-api-smoke
 ```
 
 Run the local reverse proxy topology after building the Vite static bundle:

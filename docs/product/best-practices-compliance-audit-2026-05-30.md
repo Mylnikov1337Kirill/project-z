@@ -222,7 +222,7 @@ Evidence:
 Gap:
 
 - `AnnouncementResult.status` has a `mocked` value in shared types and `MockAnnouncementService` exists as implementation wording. This is acceptable because it is not visible gameplay UI, but it remains a naming smell if accidentally surfaced later.
-- Identity input placeholders are examples (`agent-k`, `Кирилл Мыльников`), not implementation placeholders, so they are not a violation.
+- Identity input placeholders are examples (`agent-k`, `Имя Фамилия`), not implementation placeholders, so they are not a violation.
 
 How to improve:
 

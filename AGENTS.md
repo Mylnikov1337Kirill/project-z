@@ -1,6 +1,6 @@
-# Project Z Agent Rules
+# Agent Trail Agent Rules
 
-Project Z is a game-first learning app, not a dashboard, LMS, or architecture demo. The first screen must feel like a playable retro map.
+Agent Trail is a game-first learning app, not a dashboard, LMS, or architecture demo. The first screen must feel like a playable retro map.
 
 Before substantial AI-assisted work, read the local prep pack:
 
@@ -50,7 +50,7 @@ Prep resources are curated static chapter config, not runtime internet search. P
 
 ## Visual Layout
 
-- Project Z targets desktop/fullscreen-first gameplay only. Do not start adaptive, mobile-first or responsive redesign work unless the user explicitly reopens that scope.
+- Agent Trail targets desktop/fullscreen-first gameplay only. Do not start adaptive, mobile-first or responsive redesign work unless the user explicitly reopens that scope.
 - Browser layout QA should focus on desktop/fullscreen-first viewports. Mobile-width checks are not required unless the user explicitly asks for adaptive work.
 - If a feature does not fit inside the current viewport or game working zone, rebuild the local layout instead of accepting clipping, hidden controls, overflowing children, or page-level scroll as the solution. Panels may scroll internally, but primary actions must remain visible and no element may leave its parent block.
 - The world map should be the main first-screen object and should use the full available width.
@@ -145,7 +145,7 @@ Prep resources are curated static chapter config, not runtime internet search. P
 Every AI-assisted session that changes files, project status, checks, constraints, or future-agent rules must leave the repo context current. For read-only review or analysis, do the lightweight closeout check and explicitly report that docs were not updated because repo truth did not change.
 
 - Before the final response, read `docs/product/session-closeout.md`.
-- Update `/Users/kirillmylnikov/Dev/ai/project-z-development-handoff.md` when phase status, completed work, known-good checks, next step, or the next-chat prompt changed. This is the only Project Z handoff; do not recreate `project-z-progress-handoff.md`.
+- Update `/Users/kirillmylnikov/Dev/ai/project-z-development-handoff.md` when phase status, completed work, known-good checks, next step, or the next-chat prompt changed. This is the only Agent Trail handoff; do not recreate `project-z-progress-handoff.md`.
 - Update `docs/product/repo-context-inventory.md` when commands, stack, paths, constraints, known pitfalls, or missing context changed.
 - Update `docs/product/verification-and-self-review.md` when checks, browser QA, reviewer focus, recurring risks, or stop conditions changed.
 - Update `README.md` only for user-visible setup, status, structure, or command changes.

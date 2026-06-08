@@ -1,4 +1,6 @@
-# Project Z verification and self-review
+# Agent Trail verification and self-review
+
+Brand rename QA, 2026-06-08: player-facing product name is Agent Trail and the mentor bot is Kilian. Checks passed: `npm run typecheck`, `npm run lint`, `npm run test:unit -- server/backend/api.test.ts`, `npm run build`, `npm run validate:content`, and approved-local-server `npm run test:e2e -- --grep "opens the identity screen"`. Direct in-app Browser against Vite without backend/API fixture showed the expected backend-only fallback and zero error-level console logs.
 
 Используй после AI-assisted diff и перед финальным отчётом или PR. Для документационных правок заполняй только релевантные строки; для gameplay UI обязательно делай browser QA.
 
@@ -73,7 +75,7 @@ Note: Codex in-app browser may not support Playwright `download` events. For art
 
 Note: Codex in-app browser may deny `requestFullscreen()` with a permissions error because the app is embedded. For fullscreen UI work, verify control placement and graceful denial there, then use a normal browser for true browser-chrome-free fullscreen if that is the core acceptance target.
 
-Note: Project Z targets desktop/fullscreen-first gameplay by default. Do not add mobile-width/adaptive layout QA or start responsive redesign work unless the user explicitly asks for it. Prompt-assembly slot-first layout is an explicit exception from the 2026-05-31 layout plan and keeps a dedicated mobile single-scroll check.
+Note: Agent Trail targets desktop/fullscreen-first gameplay by default. Do not add mobile-width/adaptive layout QA or start responsive redesign work unless the user explicitly asks for it. Prompt-assembly slot-first layout is an explicit exception from the 2026-05-31 layout plan and keeps a dedicated mobile single-scroll check.
 
 Note: Codex Mobile sessions may not expose the Codex in-app browser to the Browser plugin even though shell commands run on the connected computer. If `iab` is unavailable or the browser list is empty, record browser QA as unavailable in the current client session. Do not work around it with ad hoc headless browser scripts or temporary QA seed pages unless explicitly requested; run lint/build and any repo-provided CLI smoke/e2e tests, then leave the dev URL for manual QA.
 
